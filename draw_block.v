@@ -15,7 +15,7 @@
 */
 
 module drawBlock(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK)
+                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK);
     /*
     - Block is drawn in a 16x16 grid (to accomodate all possible square positions)
     - Each block is made of 4 squares
@@ -46,14 +46,10 @@ module drawBlock(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     parameter I = 3'b000, J = 3'b001, L = 3'b010, O = 3'b011, S = 3'b100, T = 3'b101, Z = 3'b110;
  
     // BASIC FUNCTIONALITY: start with T Tetrimino (3'b101)
-    drawSquare S0(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, 0, 3);
-    drawSquare S1(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-        VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, 1, 3);
-    drawSquare S2(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-        VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, 2, 3);
-    drawSquare S3(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-        VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, 1, 2);
+    drawSquare S0(0, 3);
+    drawSquare S1(1, 3);
+    drawSquare S2(2, 3);
+    drawSquare S3(1, 2);
 
 
     // always@(*)
@@ -88,16 +84,30 @@ module drawBlock(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     // end // block_table
 
 
+    vga_adapter VGA (
+        .resetn(KEY[0]),
+        .clock(CLOCK_50),
+        .color(color),
+        .x(X - (size >> 1) + XC),
+        .y(Y - (size >> 1) + YC),
+        .write(write),
+        .VGA_R(VGA_R),
+        .VGA_G(VGA_G),
+        .VGA_B(VGA_B),
+        .VGA_HS(VGA_HS),
+        .VGA_VS(VGA_VS),
+        .VGA_BLANK_N(VGA_BLANK_N),
+        .VGA_SYNC_N(VGA_SYNC_N),
+        .VGA_CLK(VGA_CLK));
+
 
 
 
 endmodule
 
-module drawSquare(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, GRID_X, GRID_Y);
+module drawSquare(GRID_X, GRID_Y, COLOUR);
   
-    // Draw a single coloured square based on given coordinates
-
+    // Draw a single coloured square based on given coordinates and colour
 
     // specify the number of bits needed for an X (column) pixel coordinate on the VGA display
     parameter nX = 10;
@@ -107,21 +117,7 @@ module drawSquare(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     // state codes for FSM that choses which object to draw at a given time
     parameter A = 2'b00, B = 2'b01, C = 2'b10, D = 2'b11;
 
-    input CLOCK_50;    
-    input [9:0] SW;
-    input [3:0] KEY;
-    output [9:0] LEDR;
-    output [6:0] HEX2, HEX1, HEX0;
-    output [7:0] VGA_R;
-    output [7:0] VGA_G;
-    output [7:0] VGA_B;
-    output VGA_HS;
-    output VGA_VS;
-    output VGA_BLANK_N;
-    output VGA_SYNC_N;
-    output VGA_CLK;    
-
-    input GRID_X, GRID_Y;
+    input [3:0] GRID_X, GRID_Y;
     
     wire [8:0] new_color, color;
     wire [nX-1:0] X;    // used to record the center of the box
@@ -135,25 +131,17 @@ module drawSquare(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     
     // use offsets to center the box on the VGA display
     // in practice: offsets should be passed in to change depending on block location
-    parameter X_OFFSET = 320 + GRID_X*8;
-    parameter Y_OFFSET = 240 + GRID_Y*8;
-    assign X0 = X_OFFSET;
-    assign Y0 = Y_OFFSET;
-    regn UX (X0, KEY[0], 1'b1, CLOCK_50, X);
-        defparam UX.n = nX;
-    regn UY (Y0, KEY[0], 1'b1, CLOCK_50, Y);
-        defparam UY.n = nY;
+    parameter X_OFFSET = 320;
+    parameter Y_OFFSET = 240;
+    assign X0 = X_OFFSET + GRID_X*8;;
+    assign Y0 = Y_OFFSET + GRID_Y*8;
 
     // set default color to white (111)
     // in practice: color should be passed in
     assign new_color = color == {9{1'b0}} ? {9{1'b1}} : SW[8:0];
-    regn UC (new_color, KEY[0], ~KEY[1] | (color == {9{1'b0}}), CLOCK_50, color); 
-        defparam UC.n = 9;
 
     // set box size to 8 x 8 ? subject to change
     assign new_size = size == {nY{1'b0}} ? {{nY-4{1'b0}},4'b1000} : SW[nY-1:0];
-    regn UB (new_size, KEY[0], ~KEY[2] | (size == {nY{1'b0}}), CLOCK_50, size); 
-        defparam UB.n = nY;
 
     // these counter are used to generate pixel coordinates for the box
     Up_count U1 ({nX{1'd0}}, CLOCK_50, KEY[0], Lxc, Exc, XC);
@@ -195,21 +183,6 @@ module drawSquare(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
         else
             y_Q <= Y_D;
 
-    vga_adapter VGA (
-        .resetn(KEY[0]),
-        .clock(CLOCK_50),
-        .color(color),
-        .x(X - (size >> 1) + XC),
-        .y(Y - (size >> 1) + YC),
-        .write(write),
-        .VGA_R(VGA_R),
-        .VGA_G(VGA_G),
-        .VGA_B(VGA_B),
-        .VGA_HS(VGA_HS),
-        .VGA_VS(VGA_VS),
-        .VGA_BLANK_N(VGA_BLANK_N),
-        .VGA_SYNC_N(VGA_SYNC_N),
-        .VGA_CLK(VGA_CLK));
 
 endmodule
 

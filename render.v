@@ -1,14 +1,39 @@
 // Author: Meilly Chen
 // Basic rendering, line clearing, output to VGA
+// Adapted from DISPLAY_MIF demo
 
-module render(CLOCK_50, SW, KEY, LEDR, HEX2, HEX1, HEX0, VGA_R, VGA_G, VGA_B,
-                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK) 
+// Bitmaps from: https://github.com/arbiter34/Bitmap-Tetris
 
-    input CLOCK_50;    
-    input [9:0] SW;
-    input [3:0] KEY;
-    output [9:0] LEDR;
-    output [6:0] HEX2, HEX1, HEX0;
+module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0, old_x1, old_x2, old_x3, old_y0, old_y1, old_y2, old_y3, curr_x0, curr_x1, curr_x2, curr_x3, curr_y0, curr_y1, curr_y2, curr_y3, board_we, board_wdata, board_wx, board_wy, render_idle, VGA_R, VGA_G, VGA_B,
+                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK); 
+
+    input CLOCK_50;
+    input resetn;
+
+    // go signals
+    input block_moved;
+    input block_locked;
+    input redraw_board;
+
+    // coordinates (10x20 grid)
+    // each block is made of 4 squares, so each square needs its own set of coords
+    // need old coords as well as current coords to properly erase the block after moving
+
+    input [3:0] old_x0, old_x1, old_x2, old_x3; // 4 bit to hold 0-9
+    input [4:0] old_y0, old_y1, old_y2, old_y3; // 5 bit to hold 0-19
+    
+    input [3:0] curr_x0, curr_x1, curr_x2, curr_x3; // 4 bit to hold 0-9
+    input [4:0] curr_y0, curr_y1, curr_y2, curr_y3; // 5 bit to hold 0-19
+    
+    // board writing
+    input board_we; // enable (to update cell)
+    input [2:0] board_wdata; // data in grid cell (start with 4 options for now)
+    input [3:0] board_wx; // cell coord x
+    input [4:0] board_wy; // cell coord y
+
+    output render_idle; // output signal
+
+    // for the vga adapter
     output [7:0] VGA_R;
     output [7:0] VGA_G;
     output [7:0] VGA_B;
@@ -19,97 +44,305 @@ module render(CLOCK_50, SW, KEY, LEDR, HEX2, HEX1, HEX0, VGA_R, VGA_G, VGA_B,
     output VGA_CLK;
 
 
+    // Board setup
+    parameter COLS = 10, ROWS = 20, CELL = 32;
+    parameter X_OFFSET = 10'd160; 
+    parameter Y_OFFSET = 9'd0;
+    parameter BG = 9'b0; // black bg colour
+    parameter GREEN = 9'b000011011; // turquoise ish green?
 
-// Set codes for different blocks
-// All Tetriminos are made of 4 squares, 7 types total
-parameter I = 3'b000, J = 3'b001, L = 3'b010, O = 3'b011, S = 3'b100, T = 3'b101, Z = 3'b110;
+    // State codes
+    parameter S_INIT = 4'd0;
+    parameter S_INIT_WAIT = 4'd1;
+    parameter S_IDLE = 4'd2;
+    parameter S_ERASE = 4'd3;
+    parameter S_ERASE_WAIT = 4'd4;
+    parameter S_DRAW_ACTIVE = 4'd5;
+    parameter S_DRAW_ACTIVE_WAIT = 4'd6;
+    parameter S_DRAW_PLACED = 4'd7;
+    parameter S_DRAW_PLACED_WAIT = 4'd8;
+    parameter S_CLEAR = 4'd9;
+    parameter S_CLEAR_WAIT = 4'd10;
 
-// BASIC FUNCTIONALITY: start with T Tetrimino (3'b101)
+    reg [3:0] y_Q, Y_D; // 4 bits to hold all the states
+    reg [1:0] cell;
+    reg [3:0] gx;
+    reg [4:0] gy;
+    reg [2:0] board [0:ROWS-1][0:COLS-1];
 
-// STATE 1: Draw background,
-// STATE 2: Draw placed blocks, 
-// STATE 3: Draw active block, 
-// STATE 4: Idle (until next update)
-// parameter S_BG = 2'b00, S_BLK = 2'b01, S_ACTIVE = 2'b10, S_IDLE = 2'b11;
-// reg[1:0] y_Q; Y_D;
-// wire go; // signal to go (stop waiting)
+    reg draw_start, use_mif;
+    reg [8:0] solid_colour;
+    wire draw_done, write;
+    wire [9:0] pix_x;
+    wire [8:0] pix_y;
+    wire [8:0] vga_colour;
 
-// always@(*) 
-// begin: state_table
-// case(y_Q)
-// S_BG: 
-// begin
-//     drawBackground();
-//     Y_D = S_BLK;
-// end
+    integer r, c; // rows and columns
 
-// S_BLK:
-// begin
-//     drawBlocks();
-//     Y_D = S_ACTIVE;
-// end
+    // update the board at the positive clock edge
+    always @(posedge CLOCK_50) 
+    begin
+        if(!resetn) // clear the board
+        begin
+            for(r = 0; r < ROWS; r = r+1)
+                for(c = 0; c <COLS; c=c+1)
+                    board[r][c] <= 3'b0;
+        end else if (board_we) // write to the cell
+            board[board_wy][board_wx] <= board_wdata;
+    end
 
-// S_ACTIVE:
-// begin
-//     // Draw the current block
-// end
+    // State table
+    always @(*)
+    begin: state_table
+        case(y_Q)
+            S_INIT: Y_D = S_INIT_WAIT;
+            S_INIT_WAIT: Y_D = !draw_done ? S_INIT_WAIT : (gx == COLS-1 && gy == ROWS-1) ? S_IDLE : S_INIT;
+            // stays in wait until draw is done. if draw is done, idles if gx and gy are at the end of the board or restarts drawing if not
 
-// S_IDLE: Y_D = go ? S_BG : S_IDLE;
+            S_IDLE: Y_D = redraw_board ? S_CLEAR : block_locked ? S_DRAW_PLACED : block_moved ? S_ERASE : S_IDLE;
+            // checks for go signals to exit idle state
 
-// default: Y_D = S_IDLE;
+            S_ERASE: Y_D = S_ERASE_WAIT;
+            S_ERASE_WAIT: Y_D = !draw_done ? S_ERASE_WAIT : (cell == 2'd3) ? S_DRAW_ACTIVE : S_ERASE;
+            
+            S_DRAW_ACTIVE: Y_D = S_DRAW_ACTIVE_WAIT;
+            S_DRAW_ACTIVE_WAIT: Y_D = !draw_done ? S_DRAW_ACTIVE_WAIT : (cell == 2'd3) ? S_IDLE: S_DRAW_ACTIVE;
 
-// endcase
-// end // state_table
+            S_DRAW_PLACED: Y_D = S_DRAW_PLACED_WAIT;
+            S_DRAW_PLACED_WAIT: Y_D = !draw_done ? S_DRAW_PLACED_WAIT : (cell == 2'd3) ? S_IDLE : S_DRAW_PLACED;
 
-drawSquare U1(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
-                VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK);
+            S_CLEAR: Y_D = S_CLEAR_WAIT;
+            S_CLEAR_WAIT: Y_D = !draw_done ? S_CLEAR_WAIT : (gx == COLS-1 && gy == ROWS-1) ? S_IDLE : S_CLEAR;
 
+            default: Y_D = S_INIT;
+        endcase
+    end // state_table
+
+    // Outputs for each state
+    always @(*)
+    begin: state_actions
+        draw_start = 1'b0;
+        use_mif = 1'b0;
+        solid_colour = BG;
+
+        case(y_Q)
+            S_INIT, S_INIT_WAIT:
+                draw_start = (y_Q == S_INIT);
+            S_ERASE, S_ERASE_WAIT:
+                draw_start = (y_Q == S_ERASE);
+            S_DRAW_ACTIVE, S_DRAW_ACTIVE_WAIT:
+            begin
+                solid_colour = GREEN;
+                draw_start = (y_Q == S_DRAW_ACTIVE);
+            end
+            S_DRAW_PLACED, S_DRAW_PLACED_WAIT:
+            begin
+                solid_colour = GREEN;
+                draw_start = (y_Q == S_DRAW_PLACED);
+            end
+            S_CLEAR, S_CLEAR_WAIT:
+            begin
+                solid_colour = (board[gy][gx] != 3'b000) ? GREEN : BG;
+                draw_start = (y_Q == S_CLEAR);
+            end
+            default: draw_start = 1'b0; // don't start
+        endcase
+    end
+
+    reg [3:0] sel_x;
+    reg [4:0] sel_y;
+    wire use_old = (y_Q == S_ERASE || y_Q == S_ERASE_WAIT);
+    always @(*)
+    begin
+        case(cell)
+            2'd0:
+            begin
+                sel_x = use_old ? old_x0: curr_x0;
+                sel_y = use_old ? old_y0 : curr_y0;
+            end
+            2'd1:
+            begin
+                sel_x = use_old ? old_x1: curr_x1;
+                sel_y = use_old ? old_y1 : curr_y1;
+            end
+            2'd2:
+            begin
+                sel_x = use_old ? old_x2: curr_x2;
+                sel_y = use_old ? old_y2 : curr_y2;
+            end
+            2'd3:
+            begin
+                sel_x = use_old ? old_x3: curr_x3;
+                sel_y = use_old ? old_y3 : curr_y3;
+            end
+            default: // affect the 4th cell
+            begin
+                sel_x = use_old ? old_x3: curr_x3;
+                sel_y = use_old ? old_y3 : curr_y3;
+            end
+
+        endcase
+    end
+
+    // Determine set of coords to use for grid walking based on state
+    wire grid_walk = (y_Q == S_INIT  || y_Q == S_INIT_WAIT || y_Q == S_CLEAR || y_Q == S_CLEAR_WAIT);
+    wire [3:0] grid_x = grid_walk ? gx : sel_x;
+    wire [4:0] grid_y = grid_walk ? gy : sel_y;
+
+    always @(posedge CLOCK_50)
+    begin
+        if(!resetn) // go back to init and reset grid walk
+        begin
+            y_Q <= S_INIT; cell <= 2'd0; gx <= 4'd0; gy <= 5'd0;
+        end
+        else
+        begin
+            y_Q <= Y_D;
+            if(Y_D == S_IDLE)
+            begin
+                cell <= 2'd0;
+                gx <= 4'd0;
+                gy <= 5'd0;
+            end
+            else if(draw_done) 
+            begin
+                if((y_Q == S_ERASE_WAIT || y_Q == S_DRAW_ACTIVE_WAIT || y_Q == S_DRAW_PLACED_WAIT))
+                    cell <= cell + 1'b1; // move the cell up
+                else
+                    cell <= 2'd0;
+                if(y_Q == S_INIT_WAIT || y_Q == S_CLEAR_WAIT)
+                begin
+                    if(gx == COLS -1)
+                    begin
+                        gx <= 4'd0;
+                        gy <= (gy == ROWS-1) ? 5'd0 : gy + 1'b1;
+                    end
+                    else
+                        gx <= gx + 1'b1;
+                end
+            end
+        end
+    end
+
+    assign render_idle = (y_Q == S_IDLE); 
+
+    draw_square #(.CELL(CELL), .X_OFFSET(X_OFFSET), .Y_OFFSET(Y_OFFSET)) DRAWER (
+        .clock(CLOCK_50), .resetn(resetn), .start(draw_start),
+        .grid_x(grid_x), .grid_y(grid_y),
+        .use_mif(use_mif), .solid_colour(solid_colour),
+        .done(draw_done), .pix_x(pix_x), .pix_y(pix_y),
+        .write(write), .vga_colour(vga_colour));
+
+    vga_adapter VGA (
+        .resetn(resetn),
+        .clock(CLOCK_50),
+        .color(vga_colour),
+        .x(pix_x),
+        .y(pix_y),
+        .write(write),
+        .VGA_R(VGA_R),
+        .VGA_G(VGA_G),
+        .VGA_B(VGA_B),
+        .VGA_HS(VGA_HS),
+        .VGA_VS(VGA_VS),
+        .VGA_BLANK_N(VGA_BLANK_N),
+        .VGA_SYNC_N(VGA_SYNC_N),
+        .VGA_CLK(VGA_CLK));
 
 endmodule
 
+module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, done, pix_x, pix_y, write, vga_colour);
+    input clock, resetn, start, use_mif;
+    input [3:0] grid_x;
+    input [4:0] grid_y;
+    input [8:0] solid_colour;
+    output done;
+    output reg [9:0] pix_x;
+    output reg [8:0] pix_y;
+    output reg write;
+    output [8:0] vga_colour;
 
-module drawBlock(blockID)
-// Composes a block out of 4 squares
-always@(*)
-begin: block_table
-case(blockID)
-I:
+    parameter CELL = 32;
+    parameter X_OFFSET = 10'd160;
+    parameter Y_OFFSET = 9'd0;
+    parameter ADDR_W = 10;          // 2^10 = 1024 = 32*32
+    parameter DEPTH = CELL * CELL; // square.mif DEPTH
 
-J:
+    // FSM for drawing out the pixel
+    parameter S_WAIT = 2'd0, S_RUN = 2'd1, S_FLUSH = 2'd2, S_DONE = 2'd3;
 
-L:
+    reg [1:0] y_Q, Y_D;
+    reg [5:0] Xc, Yc;
+    reg [8:0] solid_r;
+    wire [8:0] rom_colour;
+    wire [ADDR_W-1:0] addr = Yc * CELL + Xc;
+    wire last = (Xc == CELL-1) && (Yc == CELL-1);
 
-O:
+    always @(*)
+    begin
+        case(y_Q)
+            S_WAIT: Y_D = start ? S_RUN : S_WAIT;
+            S_RUN: Y_D = last ? S_FLUSH : S_RUN;
+            S_FLUSH: Y_D = S_DONE;
+            S_DONE: Y_D = S_WAIT;
+            default: Y_D = S_WAIT;
+        endcase
+    end
 
-S:
+    always @(posedge clock) 
+    begin
+        if(!resetn)
+        begin
+            y_Q <= S_WAIT;
+            Xc <= 6'd0; Yc <= 6'd0;
+            pix_x <= 10'd0; pix_y <= 9'd0;
+            write <= 1'b0; solid_r <= 9'd0;
+        end
+        else
+        begin
+            y_Q <= Y_D;
+            pix_x <= X_OFFSET + (grid_x * CELL) + Xc;
+            pix_y <= Y_OFFSET + (grid_y * CELL) + Yc;
+            write <= (y_Q == S_RUN);
+            solid_r <= solid_colour;
+            if(y_Q == S_WAIT || y_Q == S_DONE)
+            begin
+                Xc <= 6'd0;
+                Yc <= 6'd0;
+            end
+            else if(y_Q == S_RUN && !last)
+            begin
+                if(Xc == CELL-1)
+                begin
+                    Xc <= 6'd0;
+                    Yc <= Yc + 1'b1;
+                end
+                else
+                    Xc <= Xc + 1'b1;
+            end
+        end
+    end
 
-T:
+    assign rom_colour = 9'b0; // just for testing
+    assign vga_colour = use_mif ? rom_colour : solid_r;
+    assign done = (y_Q == S_DONE);
 
-Z:
-
-default:
-
-endcase
-end // block_table
-
-
-endmodule
-
-module drawBackground()
-// Draws the background
-// BASIC FUNCTIONALITY: black screen
-
-
-endmodule
-
-module drawBlocks()
-// Draws placed blocks
-
-
-endmodule
-
-module lineClear()
-// Clears the top line of blocks
-
-
+    // altsyncram sprite_rom (
+    //         .clock0(clock),
+    //         .address_a(addr),
+    //         .q_a(rom_colour),
+    //         .wren_a(1'b0),
+    //         .data_a(9'b0)
+    // );
+    // defparam
+    //     sprite_rom.operation_mode = "ROM",
+    //     sprite_rom.intended_device_family = "Cyclone V",
+    //     sprite_rom.width_a = 9,
+    //     sprite_rom.widthad_a = ADDR_W,
+    //     sprite_rom.numwords_a = DEPTH,
+    //     sprite_rom.outdata_reg_a = "CLOCK0",
+    //     sprite_rom.clock_enable_input_a = "BYPASS",
+    //     sprite_rom.clock_enable_output_a = "BYPASS",
+    //     sprite_rom.power_up_uninitialized = "FALSE",
+    //     sprite_rom.init_file = "square.mif";
 endmodule
