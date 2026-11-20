@@ -1,0 +1,21 @@
+
+State Machine - |top|render:U1|y_Q
+Name y_Q.S_CLEAR_WAIT y_Q.S_CLEAR y_Q.S_DRAW_PLACED_WAIT y_Q.S_DRAW_PLACED y_Q.S_DRAW_ACTIVE_WAIT y_Q.S_DRAW_ACTIVE y_Q.S_ERASE_WAIT y_Q.S_ERASE y_Q.S_IDLE y_Q.S_INIT_WAIT y_Q.S_INIT 
+y_Q.S_INIT 0 0 0 0 0 0 0 0 0 0 0 
+y_Q.S_INIT_WAIT 0 0 0 0 0 0 0 0 0 1 1 
+y_Q.S_IDLE 0 0 0 0 0 0 0 0 1 0 1 
+y_Q.S_ERASE 0 0 0 0 0 0 0 1 0 0 1 
+y_Q.S_ERASE_WAIT 0 0 0 0 0 0 1 0 0 0 1 
+y_Q.S_DRAW_ACTIVE 0 0 0 0 0 1 0 0 0 0 1 
+y_Q.S_DRAW_ACTIVE_WAIT 0 0 0 0 1 0 0 0 0 0 1 
+y_Q.S_DRAW_PLACED 0 0 0 1 0 0 0 0 0 0 1 
+y_Q.S_DRAW_PLACED_WAIT 0 0 1 0 0 0 0 0 0 0 1 
+y_Q.S_CLEAR 0 1 0 0 0 0 0 0 0 0 1 
+y_Q.S_CLEAR_WAIT 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |top|render:U1|draw_square:DRAWER|y_Q
+Name y_Q.S_DONE y_Q.S_FLUSH y_Q.S_RUN y_Q.S_WAIT 
+y_Q.S_WAIT 0 0 0 0 
+y_Q.S_RUN 0 0 1 1 
+y_Q.S_FLUSH 0 1 0 1 
+y_Q.S_DONE 1 0 0 1 
