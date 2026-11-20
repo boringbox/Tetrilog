@@ -4,7 +4,7 @@
 
 // Bitmaps from: https://github.com/arbiter34/Bitmap-Tetris
 
-module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0, old_x1, old_x2, old_x3, old_y0, old_y1, old_y2, old_y3, curr_x0, curr_x1, curr_x2, curr_x3, curr_y0, curr_y1, curr_y2, curr_y3, board_we, board_wdata, board_wx, board_wy, render_idle, VGA_R, VGA_G, VGA_B,
+module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0, old_x1, old_x2, old_x3, old_y0, old_y1, old_y2, old_y3, curr_x0, curr_x1, curr_x2, curr_x3, curr_y0, curr_y1, curr_y2, curr_y3, board_we, board_wdata, board_wx, board_wy, render_state, VGA_R, VGA_G, VGA_B,
                 VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK); 
 
     input CLOCK_50;
@@ -33,7 +33,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     input [3:0] board_wx; // cell coord x
     input [4:0] board_wy; // cell coord y
 
-    output render_idle; // output signal
+    output [3:0] render_state; // output signal
 
     // for the vga adapter
     output [7:0] VGA_R;
@@ -223,7 +223,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
         end
     end
 
-    assign render_idle = (y_Q == S_IDLE); // for checking if rendering is happening currently
+    assign render_state = y_Q; // for checking if rendering is happening currently
 
     draw_square #(.CELL(CELL), .X_OFFSET(X_OFFSET), .Y_OFFSET(Y_OFFSET)) DRAWER (
         .clock(CLOCK_50), .resetn(resetn), .start(draw_start),
