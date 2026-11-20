@@ -1,3 +1,4 @@
+
 //block falls automatically even when you aren’t pressing 
 //anything
 //FPGA will know when to move it as it uses a counter
@@ -16,7 +17,7 @@ reg [25:0] counter;
 
 //1HZ = 50,000,000 clock cycles
 //parameter is constant
-parameter MAX_COUNT = 26’d49999999;
+parameter MAX_COUNT = 26'd49999999;
 
 //Resetn = 0 -> reset
 //Resetn = 1 -> normal 
@@ -32,6 +33,14 @@ begin
     gravity_counter <= 0;
   end
 
+  // NEW: Do not count while the game is inactive.
+  // Resetting the counter means a new game starts with a full gravity interval.
+  else if (!game_active)
+  begin
+    counter <= 0;
+    gravity_counter <= 0;
+  end
+
 //once counter reaches 49,999,999, the clock resets,
 //gravity_counter becomes 1 for 1 clock cycles,
 //and the falling-block controller receives the signal
@@ -42,8 +51,6 @@ begin
 //tells falling controller it can move block down
        gravity_counter <=1; 
   end
-
-
 
 //keep counting
 //every positive clock edge increases counter by 1
