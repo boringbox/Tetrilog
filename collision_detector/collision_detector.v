@@ -84,8 +84,8 @@ else if (board_cells[y1 * 10 + x1])
 //checking third cell
 if(x2 >= 10 || y2 >= 19)
   down_blocked = 1;
-else if (board_cells[y2+1] * 10 + x2)
-   down_blocked = 1;
+else if (board_cells[(y2+1)*10 + x2])
+  down_blocked = 1;
 
 if(x2 >= 10 || y2 >= 20)
   spawn_blocked = 1;
@@ -106,3 +106,5 @@ else if (board_cells[y3*10 + x3])
  end
 
 endmodule
+
+
