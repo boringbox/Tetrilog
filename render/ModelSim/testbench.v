@@ -23,27 +23,48 @@ module testbench();
         .VGA_CLK(VGA_CLK)
     );
 
-    always #10 CLOCK_50 = ~CLOCK_50; // generate periodic clock waveform
+    // 50 MHz clock -> each clock cycle is 20ns
+    initial CLOCK_50 = 1'b0;
+    always #10 CLOCK_50 = ~CLOCK_50;
 
-    initial 
-    begin
+    // check for timeout
+    initial begin
+        #20_000_000;
+        $display("TIMEOUT at %0t: render_idle did not return", $time);
+        $stop;
+    end
+
+    // Assert one go switch for two clocks, then wait until render is idle again.
+    // LEDR[0] is render_idle. The switch must already be low before idle returns,
+    // otherwise S_IDLE starts the same operation again.
+    task pulse_sw;
+        input integer idx;
+        begin
+            @(posedge CLOCK_50);
+            SW[idx] = 1'b1;
+            repeat (2) @(posedge CLOCK_50);
+            SW[idx] = 1'b0;
+            @(posedge LEDR[0]);
+        end
+    endtask
+
+    initial begin
         SW = 10'b0;
-        KEY = 4'b0000;
-        
-        CLOCK_50 <= 1'b0;
-        KEY[0] <= 1'b0; // reset
+        KEY = 4'b1111;
+        KEY[0] = 1'b0; // resetn
 
-        #20 SW[0] <= 1'b1; // trigger block_moved
-        #20 SW[0] <= 1'b0;
+        repeat (5) @(posedge CLOCK_50);
+        KEY[0] = 1'b1;
 
-        #20 SW[1] <= 1'b1; // trigger block_locked (place block)
-        #20 SW[1] <= 1'b0;
+        // S_INIT clears the board before the first idle
+        @(posedge LEDR[0]);
 
-        #20 SW[2] <= 1'b1; // trigger redraw_board   
-        #20 SW[2] <= 1'b0;
+        pulse_sw(0); // block_moved: erase, then draw the active piece
 
-        #20 KEY[0] <= 1'b0; // reset again
+        pulse_sw(1); // block_locked: draw the placed piece
 
-    
+        pulse_sw(2); // redraw_board: repaint every cell
+
+        $stop;
     end
 endmodule
