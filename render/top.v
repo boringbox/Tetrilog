@@ -17,9 +17,9 @@ module top(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     render U1 (
         .CLOCK_50(CLOCK_50),
         .resetn(KEY[0]),
-        .block_moved(1'b0),
-        .block_locked(~KEY[1]),
-        .redraw_board(1'b0),
+        .block_moved(SW[0]),
+        .block_locked(SW[1]),
+        .redraw_board(SW[2]),
 
         .old_x0(4'd4), .old_x1(4'd3), .old_x2(4'd4), .old_x3(4'd5),
         .old_y0(5'd0), .old_y1(5'd1), .old_y2(5'd1), .old_y3(5'd1),

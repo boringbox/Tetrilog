@@ -1,6 +1,6 @@
 // Author: Meilly Chen
 // Basic rendering, line clearing, output to VGA
-// Adapted from DISPLAY_MIF demo
+// Adapted from ANIMATION demo
 
 // Bitmaps from: https://github.com/arbiter34/Bitmap-Tetris
 
@@ -43,7 +43,6 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     output VGA_SYNC_N;
     output VGA_CLK;
 
-
     // Board setup
     parameter COLS = 10, ROWS = 20, CELL = 32;
     parameter X_OFFSET = 10'd160; 
@@ -64,8 +63,8 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     parameter S_CLEAR = 4'd9;
     parameter S_CLEAR_WAIT = 4'd10;
 
-    reg [3:0] y_Q, Y_D; // 4 bits to hold all the states
-    reg [1:0] cell;
+    reg [3:0] y_Q, Y_D; // 4 bits to hold all 11 states
+    reg [1:0] cellID;
     reg [3:0] gx;
     reg [4:0] gy;
     reg [2:0] board [0:ROWS-1][0:COLS-1];
@@ -103,13 +102,13 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
             // checks for go signals to exit idle state
 
             S_ERASE: Y_D = S_ERASE_WAIT;
-            S_ERASE_WAIT: Y_D = !draw_done ? S_ERASE_WAIT : (cell == 2'd3) ? S_DRAW_ACTIVE : S_ERASE;
+            S_ERASE_WAIT: Y_D = !draw_done ? S_ERASE_WAIT : (cellID == 2'd3) ? S_DRAW_ACTIVE : S_ERASE;
             
             S_DRAW_ACTIVE: Y_D = S_DRAW_ACTIVE_WAIT;
-            S_DRAW_ACTIVE_WAIT: Y_D = !draw_done ? S_DRAW_ACTIVE_WAIT : (cell == 2'd3) ? S_IDLE: S_DRAW_ACTIVE;
+            S_DRAW_ACTIVE_WAIT: Y_D = !draw_done ? S_DRAW_ACTIVE_WAIT : (cellID == 2'd3) ? S_IDLE: S_DRAW_ACTIVE;
 
             S_DRAW_PLACED: Y_D = S_DRAW_PLACED_WAIT;
-            S_DRAW_PLACED_WAIT: Y_D = !draw_done ? S_DRAW_PLACED_WAIT : (cell == 2'd3) ? S_IDLE : S_DRAW_PLACED;
+            S_DRAW_PLACED_WAIT: Y_D = !draw_done ? S_DRAW_PLACED_WAIT : (cellID == 2'd3) ? S_IDLE : S_DRAW_PLACED;
 
             S_CLEAR: Y_D = S_CLEAR_WAIT;
             S_CLEAR_WAIT: Y_D = !draw_done ? S_CLEAR_WAIT : (gx == COLS-1 && gy == ROWS-1) ? S_IDLE : S_CLEAR;
@@ -154,7 +153,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     wire use_old = (y_Q == S_ERASE || y_Q == S_ERASE_WAIT);
     always @(*)
     begin
-        case(cell)
+        case(cellID)
             2'd0:
             begin
                 sel_x = use_old ? old_x0: curr_x0;
@@ -175,7 +174,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
                 sel_x = use_old ? old_x3: curr_x3;
                 sel_y = use_old ? old_y3 : curr_y3;
             end
-            default: // affect the 4th cell
+            default: // affect the 4th cellID
             begin
                 sel_x = use_old ? old_x3: curr_x3;
                 sel_y = use_old ? old_y3 : curr_y3;
@@ -193,23 +192,23 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     begin
         if(!resetn) // go back to init and reset grid walk
         begin
-            y_Q <= S_INIT; cell <= 2'd0; gx <= 4'd0; gy <= 5'd0;
+            y_Q <= S_INIT; cellID <= 2'd0; gx <= 4'd0; gy <= 5'd0;
         end
         else
         begin
             y_Q <= Y_D;
             if(Y_D == S_IDLE)
             begin
-                cell <= 2'd0;
+                cellID <= 2'd0;
                 gx <= 4'd0;
                 gy <= 5'd0;
             end
             else if(draw_done) 
             begin
                 if((y_Q == S_ERASE_WAIT || y_Q == S_DRAW_ACTIVE_WAIT || y_Q == S_DRAW_PLACED_WAIT))
-                    cell <= cell + 1'b1; // move the cell up
+                    cellID <= cellID + 1'b1; // move the cellID up
                 else
-                    cell <= 2'd0;
+                    cellID <= 2'd0;
                 if(y_Q == S_INIT_WAIT || y_Q == S_CLEAR_WAIT)
                 begin
                     if(gx == COLS -1)
@@ -274,7 +273,6 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     reg [1:0] y_Q, Y_D;
     reg [5:0] Xc, Yc;
     reg [8:0] solid_r;
-    wire [8:0] rom_colour;
     wire [ADDR_W-1:0] addr = Yc * CELL + Xc;
     wire last = (Xc == CELL-1) && (Yc == CELL-1);
 
@@ -323,26 +321,7 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
         end
     end
 
-    assign rom_colour = 9'b0; // just for testing
-    assign vga_colour = use_mif ? rom_colour : solid_r;
+    assign vga_colour = solid_r;
     assign done = (y_Q == S_DONE);
 
-    // altsyncram sprite_rom (
-    //         .clock0(clock),
-    //         .address_a(addr),
-    //         .q_a(rom_colour),
-    //         .wren_a(1'b0),
-    //         .data_a(9'b0)
-    // );
-    // defparam
-    //     sprite_rom.operation_mode = "ROM",
-    //     sprite_rom.intended_device_family = "Cyclone V",
-    //     sprite_rom.width_a = 9,
-    //     sprite_rom.widthad_a = ADDR_W,
-    //     sprite_rom.numwords_a = DEPTH,
-    //     sprite_rom.outdata_reg_a = "CLOCK0",
-    //     sprite_rom.clock_enable_input_a = "BYPASS",
-    //     sprite_rom.clock_enable_output_a = "BYPASS",
-    //     sprite_rom.power_up_uninitialized = "FALSE",
-    //     sprite_rom.init_file = "square.mif";
 endmodule
