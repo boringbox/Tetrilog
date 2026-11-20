@@ -1,7 +1,6 @@
 
 //this module makes your block move
-
-
+//checks whether piece can move down
 module falling_controller(
    input CLOCK_50,
    input Resetn,
