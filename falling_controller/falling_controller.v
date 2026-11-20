@@ -1,3 +1,4 @@
+
 //this module makes your block move
 
 
@@ -15,6 +16,8 @@ module falling_controller(
    output reg lock_piece
 );
 
+// Sequential logic: block_y and lock_piece are registers.
+// Their values are updated on the rising edge of CLOCK_50.
 always @(posedge CLOCK_50)
 begin
 
@@ -29,7 +32,9 @@ begin
 
      //default is no locking signal
      lock_piece <= 0;
-      
+
+     // A newly created piece is placed at its spawn row.
+     // This takes priority over the gravity movement.
      if(new_piece)
      begin
        block_y <= spawn_y;
