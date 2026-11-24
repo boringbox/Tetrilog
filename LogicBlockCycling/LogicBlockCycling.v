@@ -1,22 +1,22 @@
 /*
 Code: https://en.wikipedia.org/wiki/Tetromino
-Piece[0] = I block 
-Piece[1] = O Block
-Piece[2] = T Block
-Piece[3] = J Block
-Piece[4] = L Block
-Piece[5] = S Block
-Piece[6] = Z Block 
+Piece[1] = I block 
+Piece[2] = O Block
+Piece[3] = T Block
+Piece[4] = J Block
+Piece[5] = L Block
+Piece[6] = S Block
+Piece[7] = Z Block 
 */ 
 
 module LogicBlockCycling(Clock, Resetn, NextBlock, Piece);
-    parameter [2:0] PIECE_I = 3'd0; 
-    parameter [2:0] PIECE_O = 3'd1;
-    parameter [2:0] PIECE_T = 3'd2;
-    parameter [2:0] PIECE_J = 3'd3;
-    parameter [2:0] PIECE_L = 3'd4;
-    parameter [2:0] PIECE_S = 3'd5;
-    parameter [2:0] PIECE_Z = 3'd6;
+    parameter [2:0] PIECE_I = 3'd1; 
+    parameter [2:0] PIECE_O = 3'd2;
+    parameter [2:0] PIECE_T = 3'd3;
+    parameter [2:0] PIECE_J = 3'd4;
+    parameter [2:0] PIECE_L = 3'd5;
+    parameter [2:0] PIECE_S = 3'd6;
+    parameter [2:0] PIECE_Z = 3'd7;
 
     input Clock;
     input Resetn;          
