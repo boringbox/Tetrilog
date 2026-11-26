@@ -51,7 +51,8 @@ module testbench();
     initial begin
         SW = 10'b0;
         KEY = 4'b1111;
-        KEY[0] = 1'b0; // resetn
+
+        #20 KEY[0] = 1'b0; // trigger resetn
 
         repeat (5) @(posedge CLOCK_50);
         KEY[0] = 1'b1;

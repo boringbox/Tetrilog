@@ -9,10 +9,10 @@ module top(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
     output [7:0] VGA_R, VGA_G, VGA_B;
     output VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK;
 
-    wire [3:0] render_state;
+    wire render_idle;
 
-    assign LEDR[3:0] = render_state;
-    assign LEDR[9:4] = 6'b0;
+    assign LEDR[0] = render_idle;
+    assign LEDR[9:1] = 9'b0;
 
     render U1 (
         .CLOCK_50(CLOCK_50),
@@ -24,13 +24,13 @@ module top(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
         .old_x0(4'd4), .old_x1(4'd3), .old_x2(4'd4), .old_x3(4'd5),
         .old_y0(5'd0), .old_y1(5'd1), .old_y2(5'd1), .old_y3(5'd1),
         .curr_x0(4'd4), .curr_x1(4'd3), .curr_x2(4'd4), .curr_x3(4'd5),
-        .curr_y0(5'd0), .curr_y1(5'd1), .curr_y2(5'd1), .curr_y3(5'd1),
+        .curr_y0(5'd1), .curr_y1(5'd2), .curr_y2(5'd3), .curr_y3(5'd4),
 
         .board_we(1'b0),
         .board_wdata(3'b000),
         .board_wx(4'd0),
         .board_wy(5'd0),
-        .render_state(render_state),
+        .render_idle(render_idle),
 
         .VGA_R(VGA_R),
         .VGA_G(VGA_G),

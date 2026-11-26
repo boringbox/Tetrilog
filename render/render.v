@@ -4,7 +4,7 @@
 
 // Bitmaps from: https://github.com/arbiter34/Bitmap-Tetris
 
-module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0, old_x1, old_x2, old_x3, old_y0, old_y1, old_y2, old_y3, curr_x0, curr_x1, curr_x2, curr_x3, curr_y0, curr_y1, curr_y2, curr_y3, board_we, board_wdata, board_wx, board_wy, render_state, VGA_R, VGA_G, VGA_B,
+module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0, old_x1, old_x2, old_x3, old_y0, old_y1, old_y2, old_y3, curr_x0, curr_x1, curr_x2, curr_x3, curr_y0, curr_y1, curr_y2, curr_y3, board_we, board_wdata, board_wx, board_wy, render_idle, VGA_R, VGA_G, VGA_B,
                 VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK); 
 
     input CLOCK_50;
@@ -33,7 +33,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     input [3:0] board_wx; // cell coord x
     input [4:0] board_wy; // cell coord y
 
-    output [3:0] render_state; // output signal
+    output render_idle; // output signal for checking state
 
     // for the vga adapter
     output [7:0] VGA_R;
@@ -72,6 +72,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     reg [2:0] board [0:ROWS-1][0:COLS-1]; // starts from LSB for more intuitive iteration (top of the board is 0,0 instead of 4,5)
 
     reg draw_start, use_mif;
+    reg inc_cell, step_grid, clear_cursors;
     reg [8:0] solid_colour;
     wire draw_done, write;
     wire [9:0] pix_x;
@@ -119,37 +120,75 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
         endcase
     end // state_table
 
-    // Outputs for each state
+    // FSM outputs. state drives the VGA signals
     always @(*)
     begin: state_actions
         draw_start = 1'b0;
         use_mif = 1'b0;
         solid_colour = BG;
+        inc_cell = 1'b0;
+        step_grid = 1'b0;
+        clear_cursors = (Y_D == S_IDLE);
 
-        case(y_Q)
-            S_INIT, S_INIT_WAIT:
-                draw_start = (y_Q == S_INIT);
-            S_ERASE, S_ERASE_WAIT:
-                draw_start = (y_Q == S_ERASE);
-            S_DRAW_ACTIVE, S_DRAW_ACTIVE_WAIT:
+        case (y_Q)
+            S_INIT:
+                draw_start = 1'b1;
+            S_ERASE:
+                draw_start = 1'b1;
+            S_DRAW_ACTIVE, S_DRAW_PLACED:
             begin
                 solid_colour = GREEN;
-                draw_start = (y_Q == S_DRAW_ACTIVE);
+                draw_start = 1'b1;
             end
-            S_DRAW_PLACED, S_DRAW_PLACED_WAIT:
-            begin
-                solid_colour = GREEN;
-                draw_start = (y_Q == S_DRAW_PLACED);
-            end
-            S_CLEAR, S_CLEAR_WAIT:
+            S_CLEAR:
             begin
                 solid_colour = (board[gy][gx] != 3'b000) ? GREEN : BG;
-                draw_start = (y_Q == S_CLEAR);
+                draw_start = 1'b1;
             end
-            default: draw_start = 1'b0; // don't start
+            S_ERASE_WAIT, S_DRAW_ACTIVE_WAIT, S_DRAW_PLACED_WAIT:
+                inc_cell = draw_done && (Y_D != S_IDLE);
+            S_INIT_WAIT, S_CLEAR_WAIT:
+                step_grid = draw_done && (Y_D != S_IDLE);
         endcase
     end
 
+    // state ffs
+    always @(posedge CLOCK_50)
+    begin
+        if(!resetn)
+            y_Q <= S_INIT;
+        else
+            y_Q <= Y_D;
+    end
+    
+    // FSM Output
+    assign render_idle = (y_Q == S_IDLE); // for checking idle state
+    
+
+    // grid cursor update
+    always @(posedge CLOCK_50)
+    begin
+        if (!resetn || clear_cursors)
+        begin
+            cellID <= 2'd0;
+            gx <= 4'd0;
+            gy <= 5'd0;
+        end
+        else if (inc_cell)
+            cellID <= cellID + 1'b1;
+        else if (step_grid)
+        begin
+            cellID <= 2'd0;
+            if (gx == COLS-1)
+            begin
+                gx <= 4'd0;
+                gy <= gy + 1'b1;
+            end
+            else
+                gx <= gx + 1'b1;
+        end
+    end
+  
     reg [3:0] sel_x;
     reg [4:0] sel_y;
     wire use_old = (y_Q == S_ERASE || y_Q == S_ERASE_WAIT);
@@ -189,41 +228,6 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     wire grid_walk = (y_Q == S_INIT  || y_Q == S_INIT_WAIT || y_Q == S_CLEAR || y_Q == S_CLEAR_WAIT);
     wire [3:0] grid_x = grid_walk ? gx : sel_x; // walk the entire grid, or just the cells for the block 
     wire [4:0] grid_y = grid_walk ? gy : sel_y;
-
-    always @(posedge CLOCK_50)
-    begin
-        if(!resetn) // go back to init and reset grid walk
-        begin
-            y_Q <= S_INIT; cellID <= 2'd0; gx <= 4'd0; gy <= 5'd0;
-        end
-        else
-        begin
-            y_Q <= Y_D;
-            if(Y_D == S_IDLE) // if the next state is idle i.e. nothing is happening, also reset cursors
-            begin
-                cellID <= 2'd0; gx <= 4'd0; gy <= 5'd0;
-            end
-            else if(draw_done) // if a square is done drawing and the next state isn't idle
-            begin
-                if((y_Q == S_ERASE_WAIT || y_Q == S_DRAW_ACTIVE_WAIT || y_Q == S_DRAW_PLACED_WAIT))
-                    cellID <= cellID + 1'b1; // if we're currently in a drawing waiting state, increment the cellID and prepare for the next draw
-                else
-                    cellID <= 2'd0; // if we're not waiting, that means all cells are filled, so reset
-                if(y_Q == S_INIT_WAIT || y_Q == S_CLEAR_WAIT)
-                begin
-                    if(gx == COLS -1) // if we've crossed horizontally
-                    begin
-                        gx <= 4'd0; // go back to the start
-                        gy <= (gy == ROWS-1) ? 5'd0 : gy + 1'b1; // put y to the start or go the next row
-                    end
-                    else
-                        gx <= gx + 1'b1; // incremement x
-                end
-            end
-        end
-    end
-
-    assign render_state = y_Q; // for checking if rendering is happening currently
 
     draw_square #(.CELL(CELL), .X_OFFSET(X_OFFSET), .Y_OFFSET(Y_OFFSET)) DRAWER (
         .clock(CLOCK_50), .resetn(resetn), .start(draw_start),
@@ -267,61 +271,52 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     parameter ADDR_W = 10;          // 2^10 = 1024 = 32*32 (bit width of cell)
     parameter DEPTH = CELL * CELL; // square.mif DEPTH
 
-    // FSM for drawing out the pixel
-    parameter S_WAIT = 2'd0, S_RUN = 2'd1, S_FLUSH = 2'd2, S_DONE = 2'd3;
+   parameter S_WAIT = 2'b00, S_X = 2'b01, S_Y = 2'b10, S_DONE = 2'b11;
 
     reg [1:0] y_Q, Y_D;
-    reg [5:0] Xc, Yc; // pixel inside cell (0 to 31)
-    reg [8:0] solid_r;
-    wire [ADDR_W-1:0] addr = Yc * CELL + Xc; // index of current pixel
-    wire last = (Xc == CELL-1) && (Yc == CELL-1); // flag for if we've reached the last pixel of the cell
+    reg [5:0] Xc, Yc;
+    reg Lxc, Lyc, Exc, Eyc;
+    reg write;
 
     always @(*)
-    begin
-        case(y_Q)
-            S_WAIT: Y_D = start ? S_RUN : S_WAIT;
-            S_RUN: Y_D = last ? S_FLUSH : S_RUN;
-            S_FLUSH: Y_D = S_DONE;
+        case (y_Q)
+            S_WAIT: Y_D = start ? S_X : S_WAIT;
+            S_X:    Y_D = (Xc != CELL-1) ? S_X : S_Y;
+            S_Y:    Y_D = (Yc != CELL-1) ? S_X : S_DONE;
             S_DONE: Y_D = S_WAIT;
             default: Y_D = S_WAIT;
         endcase
-    end
 
-    always @(posedge clock) 
+    always @(*)
     begin
-        if(!resetn)
-        begin
-            y_Q <= S_WAIT;
-            Xc <= 6'd0; Yc <= 6'd0;
-            pix_x <= 10'd0; pix_y <= 9'd0;
-            write <= 1'b0; solid_r <= 9'd0;
-        end
-        else
-        begin
-            y_Q <= Y_D;
-            pix_x <= X_OFFSET + (grid_x * CELL) + Xc;
-            pix_y <= Y_OFFSET + (grid_y * CELL) + Yc;
-            write <= (y_Q == S_RUN);
-            solid_r <= solid_colour;
-            if(y_Q == S_WAIT || y_Q == S_DONE)
-            begin
-                Xc <= 6'd0;
-                Yc <= 6'd0;
-            end
-            else if(y_Q == S_RUN && !last)
-            begin
-                if(Xc == CELL-1)
-                begin
-                    Xc <= 6'd0;
-                    Yc <= Yc + 1'b1;
-                end
-                else
-                    Xc <= Xc + 1'b1;
-            end
-        end
+        Lxc = 1'b0; Lyc = 1'b0; Exc = 1'b0; Eyc = 1'b0; write = 1'b0;
+        case (y_Q)
+            S_WAIT: begin Lxc = 1'b1; Lyc = 1'b1; end   // hold counters at 0
+            S_X:    begin Exc = 1'b1; write = 1'b1; end // write this pixel, step X
+            S_Y:    begin Lxc = 1'b1; Eyc = 1'b1; end   // reload X, step Y
+            S_DONE: begin Lxc = 1'b1; Lyc = 1'b1; end   // reload both; write stays 0
+        endcase
     end
 
-    assign vga_colour = solid_r;
-    assign done = (y_Q == S_DONE);
+    always @(posedge clock)
+        if (!resetn)
+            y_Q <= S_WAIT;
+        else
+            y_Q <= Y_D;
 
+    always @(posedge clock)
+        if (!resetn)        Xc <= 6'd0;
+        else if (Lxc)       Xc <= 6'd0;
+        else if (Exc)       Xc <= Xc + 1'b1;
+
+    always @(posedge clock)
+        if (!resetn)        Yc <= 6'd0;
+        else if (Lyc)       Yc <= 6'd0;
+        else if (Eyc)       Yc <= Yc + 1'b1;
+
+    assign pix_x = X_OFFSET + (grid_x * CELL) + Xc;
+    assign pix_y = Y_OFFSET + (grid_y * CELL) + Yc;
+    assign vga_colour = solid_colour;
+    assign done = (y_Q == S_DONE);
+    
 endmodule
