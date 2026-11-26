@@ -1,0 +1,72 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/18.1/ece241/LogicBlockCycling/ModelSim
+vLogicBlockCycler
+!s110 1795543487
+!i10b 1
+!s100 h=WZ>UP0ijmc@dAXBVW`U2
+I=3i1FWkIG9a@U^:cN9>nI0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1795543083
+8../LogicBlockCycling.v
+F../LogicBlockCycling.v
+Z2 L0 12
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1795543487.000000
+!s107 ../LogicBlockCycling.v|
+!s90 -reportprogress|300|../LogicBlockCycling.v|
+!i113 1
+Z4 tCvgOpt 0
+n@logic@block@cycler
+vLogicBlockCycling
+Z5 !s110 1795543489
+!i10b 1
+!s100 Q7eJd]C]Midbf3PdRB<o90
+I2z]5g4EZ@c8iCe_[acLhd0
+R1
+R0
+w1795543099
+8LogicBlockCycling.v
+FLogicBlockCycling.v
+R2
+R3
+r1
+!s85 0
+31
+Z6 !s108 1795543488.000000
+Z7 !s107 testbench.v|LogicBlockCycling.v|
+Z8 !s90 -reportprogress|300|LogicBlockCycling.v|testbench.v|
+!i113 1
+R4
+n@logic@block@cycling
+vtestbench
+R5
+!i10b 1
+!s100 E=JNNf=C3AVd;NLVT4D>i1
+Ihf7j7YBV>1JZ?JHAJ2U8Z0
+R1
+R0
+w1795543471
+8testbench.v
+Ftestbench.v
+L0 4
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4
