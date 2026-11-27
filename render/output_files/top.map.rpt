@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Thu Nov 19 13:12:02 2026
+Fri Nov 27 12:39:54 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -60,13 +60,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Nov 19 13:12:02 2026           ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 27 12:39:54 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top                                             ;
 ; Top-level Entity Name           ; top                                             ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 96                                              ;
+; Total registers                 ; 76                                              ;
 ; Total pins                      ; 54                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 2,764,800                                       ;
@@ -193,12 +193,12 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                   ; Library ;
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
-; vga_pll.v                        ; yes             ; User Wizard-Generated File             ; C:/intelFPGA/render/vga_pll.v                                                                  ;         ;
-; vga_controller.v                 ; yes             ; User Verilog HDL File                  ; C:/intelFPGA/render/vga_controller.v                                                           ;         ;
-; vga_address_translator.v         ; yes             ; User Verilog HDL File                  ; C:/intelFPGA/render/vga_address_translator.v                                                   ;         ;
-; vga_adapter.v                    ; yes             ; User Verilog HDL File                  ; C:/intelFPGA/render/vga_adapter.v                                                              ;         ;
-; top.v                            ; yes             ; User Verilog HDL File                  ; C:/intelFPGA/render/top.v                                                                      ;         ;
-; render.v                         ; yes             ; User Verilog HDL File                  ; C:/intelFPGA/render/render.v                                                                   ;         ;
+; vga_pll.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/chenm330/render/vga_pll.v                                                             ;         ;
+; vga_controller.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/chenm330/render/vga_controller.v                                                      ;         ;
+; vga_address_translator.v         ; yes             ; User Verilog HDL File                  ; C:/Users/chenm330/render/vga_address_translator.v                                              ;         ;
+; vga_adapter.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/chenm330/render/vga_adapter.v                                                         ;         ;
+; top.v                            ; yes             ; User Verilog HDL File                  ; C:/Users/chenm330/render/top.v                                                                 ;         ;
+; render.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/chenm330/render/render.v                                                              ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -208,49 +208,49 @@ refer to the applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_d1n1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/intelFPGA/render/db/altsyncram_d1n1.tdf                                                     ;         ;
-; ./rainbow_640_9.mif              ; yes             ; Auto-Found Memory Initialization File  ; C:/intelFPGA/render/rainbow_640_9.mif                                                          ;         ;
-; db/decode_3na.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/intelFPGA/render/db/decode_3na.tdf                                                          ;         ;
-; db/decode_s2a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/intelFPGA/render/db/decode_s2a.tdf                                                          ;         ;
-; db/mux_khb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/intelFPGA/render/db/mux_khb.tdf                                                             ;         ;
+; db/altsyncram_d1n1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/chenm330/render/db/altsyncram_d1n1.tdf                                                ;         ;
+; rainbow_640_9.mif                ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/chenm330/render/rainbow_640_9.mif                                                     ;         ;
+; db/decode_3na.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/chenm330/render/db/decode_3na.tdf                                                     ;         ;
+; db/decode_s2a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/chenm330/render/db/decode_s2a.tdf                                                     ;         ;
+; db/mux_khb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/chenm330/render/db/mux_khb.tdf                                                        ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
 ; stratixii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
 ; cycloneii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
-; db/altpll_80u.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/intelFPGA/render/db/altpll_80u.tdf                                                          ;         ;
+; db/altpll_80u.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/chenm330/render/db/altpll_80u.tdf                                                     ;         ;
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 287            ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 353            ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 218            ;
-;     -- 5 input functions                    ; 48             ;
-;     -- 4 input functions                    ; 11             ;
-;     -- <=3 input functions                  ; 76             ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 96             ;
-;                                             ;                ;
-; I/O pins                                    ; 54             ;
-; Total MLAB memory bits                      ; 0              ;
-; Total block memory bits                     ; 2764800        ;
-;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
-;                                             ;                ;
-; Total PLLs                                  ; 1              ;
-;     -- PLLs                                 ; 1              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 401            ;
-; Total fan-out                               ; 12719          ;
-; Average fan-out                             ; 14.13          ;
-+---------------------------------------------+----------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                                    ;
++---------------------------------------------+--------------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                            ;
++---------------------------------------------+--------------------------------------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 285                                                                                              ;
+;                                             ;                                                                                                  ;
+; Combinational ALUT usage for logic          ; 358                                                                                              ;
+;     -- 7 input functions                    ; 1                                                                                                ;
+;     -- 6 input functions                    ; 210                                                                                              ;
+;     -- 5 input functions                    ; 41                                                                                               ;
+;     -- 4 input functions                    ; 35                                                                                               ;
+;     -- <=3 input functions                  ; 71                                                                                               ;
+;                                             ;                                                                                                  ;
+; Dedicated logic registers                   ; 76                                                                                               ;
+;                                             ;                                                                                                  ;
+; I/O pins                                    ; 54                                                                                               ;
+; Total MLAB memory bits                      ; 0                                                                                                ;
+; Total block memory bits                     ; 2764800                                                                                          ;
+;                                             ;                                                                                                  ;
+; Total DSP Blocks                            ; 0                                                                                                ;
+;                                             ;                                                                                                  ;
+; Total PLLs                                  ; 1                                                                                                ;
+;     -- PLLs                                 ; 1                                                                                                ;
+;                                             ;                                                                                                  ;
+; Maximum fan-out node                        ; render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0] ;
+; Maximum fan-out                             ; 382                                                                                              ;
+; Total fan-out                               ; 12683                                                                                            ;
+; Average fan-out                             ; 14.33                                                                                            ;
++---------------------------------------------+--------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -258,17 +258,17 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Entity Name            ; Library Name ;
 +------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |top                                                       ; 353 (1)             ; 96 (0)                    ; 2764800           ; 0          ; 54   ; 0            ; |top                                                                                                          ; top                    ; work         ;
-;    |render:U1|                                             ; 352 (54)            ; 96 (22)                   ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1                                                                                                ; render                 ; work         ;
-;       |draw_square:DRAWER|                                 ; 34 (34)             ; 36 (36)                   ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|draw_square:DRAWER                                                                             ; draw_square            ; work         ;
-;       |vga_adapter:VGA|                                    ; 264 (2)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+; |top                                                       ; 358 (1)             ; 76 (0)                    ; 2764800           ; 0          ; 54   ; 0            ; |top                                                                                                          ; top                    ; work         ;
+;    |render:U1|                                             ; 357 (59)            ; 76 (22)                   ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1                                                                                                ; render                 ; work         ;
+;       |draw_square:DRAWER|                                 ; 29 (29)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|draw_square:DRAWER                                                                             ; draw_square            ; work         ;
+;       |vga_adapter:VGA|                                    ; 269 (3)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;          |altsyncram:VideoMemory|                          ; 172 (0)             ; 12 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
 ;             |altsyncram_d1n1:auto_generated|               ; 172 (0)             ; 12 (12)                   ; 2764800           ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated                          ; altsyncram_d1n1        ; work         ;
 ;                |decode_3na:decode2|                        ; 44 (44)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_3na:decode2       ; decode_3na             ; work         ;
 ;                |decode_s2a:rden_decode_b|                  ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_s2a:rden_decode_b ; decode_s2a             ; work         ;
 ;                |mux_khb:mux3|                              ; 90 (90)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3             ; mux_khb                ; work         ;
 ;          |vga_address_translator:user_input_translator|    ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
-;          |vga_controller:controller|                       ; 78 (66)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
+;          |vga_controller:controller|                       ; 82 (70)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
 ;             |vga_address_translator:controller_translator| ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
 ;          |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
 ;             |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                 ; work         ;
@@ -307,634 +307,631 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------+
-; State Machine - |top|render:U1|draw_square:DRAWER|y_Q           ;
-+-------------+------------+-------------+-----------+------------+
-; Name        ; y_Q.S_DONE ; y_Q.S_FLUSH ; y_Q.S_RUN ; y_Q.S_WAIT ;
-+-------------+------------+-------------+-----------+------------+
-; y_Q.S_WAIT  ; 0          ; 0           ; 0         ; 0          ;
-; y_Q.S_RUN   ; 0          ; 0           ; 1         ; 1          ;
-; y_Q.S_FLUSH ; 0          ; 1           ; 0         ; 1          ;
-; y_Q.S_DONE  ; 1          ; 0           ; 0         ; 1          ;
-+-------------+------------+-------------+-----------+------------+
++----------------------------------------------------------+
+; State Machine - |top|render:U1|draw_square:DRAWER|y_Q    ;
++------------+------------+---------+---------+------------+
+; Name       ; y_Q.S_DONE ; y_Q.S_Y ; y_Q.S_X ; y_Q.S_WAIT ;
++------------+------------+---------+---------+------------+
+; y_Q.S_WAIT ; 0          ; 0       ; 0       ; 0          ;
+; y_Q.S_X    ; 0          ; 0       ; 1       ; 1          ;
+; y_Q.S_Y    ; 0          ; 1       ; 0       ; 1          ;
+; y_Q.S_DONE ; 1          ; 0       ; 0       ; 1          ;
++------------+------------+---------+---------+------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                 ;
-+----------------------------------------------+-----------------------------------------------------+
-; Register name                                ; Reason for Removal                                  ;
-+----------------------------------------------+-----------------------------------------------------+
-; render:U1|draw_square:DRAWER|solid_r[2,5..8] ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[19][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[18][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[17][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[16][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[15][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[14][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[13][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[12][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[11][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][9][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][9][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][9][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][8][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][8][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][8][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][7][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][7][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][7][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][6][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][6][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][6][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][5][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][5][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][5][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][4][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][4][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][4][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][3][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][3][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][3][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][2][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][2][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][2][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][1][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][1][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][1][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][0][0]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][0][1]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[10][0][2]                    ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[9][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[8][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[7][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[6][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[5][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[4][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[3][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[2][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[1][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][9][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][9][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][9][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][8][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][8][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][8][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][7][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][7][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][7][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][6][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][6][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][6][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][5][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][5][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][5][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][4][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][4][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][4][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][3][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][3][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][3][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][2][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][2][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][2][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][1][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][1][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][1][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][0][0]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][0][1]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|board[0][0][2]                     ; Stuck at GND due to stuck port data_in              ;
-; render:U1|draw_square:DRAWER|solid_r[1,3,4]  ; Merged with render:U1|draw_square:DRAWER|solid_r[0] ;
-; render:U1|y_Q~2                              ; Lost fanout                                         ;
-; render:U1|y_Q~3                              ; Lost fanout                                         ;
-; render:U1|y_Q~4                              ; Lost fanout                                         ;
-; render:U1|y_Q~5                              ; Lost fanout                                         ;
-; render:U1|draw_square:DRAWER|y_Q~2           ; Lost fanout                                         ;
-; render:U1|draw_square:DRAWER|y_Q~3           ; Lost fanout                                         ;
-; render:U1|draw_square:DRAWER|Xc[5]           ; Stuck at GND due to stuck port data_in              ;
-; Total Number of Removed Registers = 615      ;                                                     ;
-+----------------------------------------------+-----------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; render:U1|board[19][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[19][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[18][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[17][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[16][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[15][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[14][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[13][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[12][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[11][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][9][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][9][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][9][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][8][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][8][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][8][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][7][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][7][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][7][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][6][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][6][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][6][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][5][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][5][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][5][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][4][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][4][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][4][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][3][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][3][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][3][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][2][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][2][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][2][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][1][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][1][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][1][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][0][0]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][0][1]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[10][0][2]               ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[9][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[8][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[7][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[6][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[5][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[4][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[3][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[2][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[1][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][9][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][9][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][9][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][8][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][8][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][8][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][7][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][7][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][7][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][6][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][6][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][6][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][5][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][5][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][5][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][4][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][4][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][4][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][3][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][3][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][3][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][2][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][2][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][2][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][1][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][1][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][1][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][0][0]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][0][1]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|board[0][0][2]                ; Stuck at GND due to stuck port data_in ;
+; render:U1|y_Q~2                         ; Lost fanout                            ;
+; render:U1|y_Q~3                         ; Lost fanout                            ;
+; render:U1|y_Q~4                         ; Lost fanout                            ;
+; render:U1|y_Q~5                         ; Lost fanout                            ;
+; render:U1|draw_square:DRAWER|y_Q~2      ; Lost fanout                            ;
+; render:U1|draw_square:DRAWER|y_Q~3      ; Lost fanout                            ;
+; Total Number of Removed Registers = 606 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -942,12 +939,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 96    ;
-; Number of registers using Synchronous Clear  ; 48    ;
+; Total registers                              ; 76    ;
+; Number of registers using Synchronous Clear  ; 29    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 27    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -957,14 +954,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top|render:U1|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                                   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top|render:U1|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                                   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top|render:U1|gy[1]                                                                                                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top|render:U1|draw_square:DRAWER|Xc[5]                                                                                ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top|render:U1|draw_square:DRAWER|Yc[5]                                                                                ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|render:U1|gx[2]                                                                                                   ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top|render:U1|gy[2]                                                                                                   ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top|render:U1|draw_square:DRAWER|Xc[0]                                                                                ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top|render:U1|cellCount[0]                                                                                            ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3|l3_w7_n4_mux_dataout ;
-; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3|l6_w1_n0_mux_dataout ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top|render:U1|gx[0]                                                                                                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top|render:U1|cellID[0]                                                                                               ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3|l3_w2_n4_mux_dataout ;
+; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |top|render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3|l6_w2_n0_mux_dataout ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -988,7 +985,7 @@ Encoding Type:  One-Hot
 ; X_OFFSET           ; 0010100000 ; Unsigned Binary      ;
 ; Y_OFFSET           ; 000000000  ; Unsigned Binary      ;
 ; BG                 ; 000000000  ; Unsigned Binary      ;
-; GREEN              ; 000011011  ; Unsigned Binary      ;
+; GREEN              ; 000111001  ; Unsigned Binary      ;
 ; S_INIT             ; 0000       ; Unsigned Binary      ;
 ; S_INIT_WAIT        ; 0001       ; Unsigned Binary      ;
 ; S_IDLE             ; 0010       ; Unsigned Binary      ;
@@ -1015,8 +1012,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ADDR_W         ; 10         ; Signed Integer                              ;
 ; DEPTH          ; 1024       ; Signed Integer                              ;
 ; S_WAIT         ; 00         ; Unsigned Binary                             ;
-; S_RUN          ; 01         ; Unsigned Binary                             ;
-; S_FLUSH        ; 10         ; Unsigned Binary                             ;
+; S_X            ; 01         ; Unsigned Binary                             ;
+; S_Y            ; 10         ; Unsigned Binary                             ;
 ; S_DONE         ; 11         ; Unsigned Binary                             ;
 +----------------+------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -1566,8 +1563,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port               ; Type  ; Severity ; Details          ;
 +--------------------+-------+----------+------------------+
 ; use_mif            ; Input ; Info     ; Stuck at GND     ;
-; solid_colour[8..5] ; Input ; Info     ; Stuck at GND     ;
-; solid_colour[2]    ; Input ; Info     ; Stuck at GND     ;
+; solid_colour[8..6] ; Input ; Info     ; Stuck at GND     ;
+; solid_colour[2..1] ; Input ; Info     ; Stuck at GND     ;
 +--------------------+-------+----------+------------------+
 
 
@@ -1576,8 +1573,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+-------+----------+--------------+
 ; Port          ; Type  ; Severity ; Details      ;
 +---------------+-------+----------+--------------+
-; block_moved   ; Input ; Info     ; Stuck at GND ;
-; redraw_board  ; Input ; Info     ; Stuck at GND ;
 ; old_x0[1..0]  ; Input ; Info     ; Stuck at GND ;
 ; old_x0[3]     ; Input ; Info     ; Stuck at GND ;
 ; old_x0[2]     ; Input ; Info     ; Stuck at VCC ;
@@ -1609,13 +1604,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; curr_x3[2]    ; Input ; Info     ; Stuck at VCC ;
 ; curr_x3[1]    ; Input ; Info     ; Stuck at GND ;
 ; curr_x3[0]    ; Input ; Info     ; Stuck at VCC ;
-; curr_y0       ; Input ; Info     ; Stuck at GND ;
-; curr_y1[4..1] ; Input ; Info     ; Stuck at GND ;
-; curr_y1[0]    ; Input ; Info     ; Stuck at VCC ;
-; curr_y2[4..1] ; Input ; Info     ; Stuck at GND ;
-; curr_y2[0]    ; Input ; Info     ; Stuck at VCC ;
-; curr_y3[4..1] ; Input ; Info     ; Stuck at GND ;
-; curr_y3[0]    ; Input ; Info     ; Stuck at VCC ;
+; curr_y0[1..0] ; Input ; Info     ; Stuck at VCC ;
+; curr_y0[4..2] ; Input ; Info     ; Stuck at GND ;
+; curr_y1[4..3] ; Input ; Info     ; Stuck at GND ;
+; curr_y1[1..0] ; Input ; Info     ; Stuck at GND ;
+; curr_y1[2]    ; Input ; Info     ; Stuck at VCC ;
+; curr_y2[4..3] ; Input ; Info     ; Stuck at GND ;
+; curr_y2[1..0] ; Input ; Info     ; Stuck at GND ;
+; curr_y2[2]    ; Input ; Info     ; Stuck at VCC ;
+; curr_y3[4..3] ; Input ; Info     ; Stuck at GND ;
+; curr_y3[1..0] ; Input ; Info     ; Stuck at GND ;
+; curr_y3[2]    ; Input ; Info     ; Stuck at VCC ;
 ; board_we      ; Input ; Info     ; Stuck at GND ;
 ; board_wdata   ; Input ; Info     ; Stuck at GND ;
 ; board_wx      ; Input ; Info     ; Stuck at GND ;
@@ -1628,33 +1627,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 96                          ;
+; arriav_ff             ; 76                          ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 11                          ;
+;     ENA               ; 17                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     SCLR              ; 28                          ;
-;     plain             ; 37                          ;
-; arriav_lcell_comb     ; 354                         ;
+;     SCLR              ; 9                           ;
+;     plain             ; 30                          ;
+; arriav_lcell_comb     ; 359                         ;
 ;     arith             ; 20                          ;
 ;         1 data inputs ; 20                          ;
-;     normal            ; 310                         ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 314                         ;
 ;         0 data inputs ; 2                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 11                          ;
-;         5 data inputs ; 48                          ;
-;         6 data inputs ; 218                         ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 29                          ;
+;         5 data inputs ; 41                          ;
+;         6 data inputs ; 210                         ;
 ;     shared            ; 24                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 16                          ;
-;         3 data inputs ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 6                           ;
 ; boundary_port         ; 54                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 342                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.80                        ;
-; Average LUT depth     ; 2.75                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.11                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1673,40 +1675,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Thu Nov 19 13:11:49 2026
+    Info: Processing started: Fri Nov 27 12:39:43 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off render -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: C:/intelFPGA/render/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: C:/Users/chenm330/render/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: C:/intelFPGA/render/vga_controller.v Line: 8
+    Info (12023): Found entity 1: vga_controller File: C:/Users/chenm330/render/vga_controller.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: C:/intelFPGA/render/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: C:/Users/chenm330/render/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: C:/intelFPGA/render/vga_adapter.v Line: 42
+    Info (12023): Found entity 1: vga_adapter File: C:/Users/chenm330/render/vga_adapter.v Line: 42
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
-    Info (12023): Found entity 1: top File: C:/intelFPGA/render/top.v Line: 2
+    Info (12023): Found entity 1: top File: C:/Users/chenm330/render/top.v Line: 2
 Info (12021): Found 2 design units, including 2 entities, in source file render.v
-    Info (12023): Found entity 1: render File: C:/intelFPGA/render/render.v Line: 7
-    Info (12023): Found entity 2: draw_square File: C:/intelFPGA/render/render.v Line: 254
-Info (12021): Found 1 design units, including 1 entities, in source file line_clear.v
-    Info (12023): Found entity 1: line_clear File: C:/intelFPGA/render/line_clear.v Line: 1
-Info (12021): Found 0 design units, including 0 entities, in source file draw_block.v
+    Info (12023): Found entity 1: render File: C:/Users/chenm330/render/render.v Line: 7
+    Info (12023): Found entity 2: draw_square File: C:/Users/chenm330/render/render.v Line: 262
+Warning (12019): Can't analyze file -- file line_clear.v is missing
+Warning (12019): Can't analyze file -- file draw_block.v is missing
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "render" for hierarchy "render:U1" File: C:/intelFPGA/render/top.v Line: 43
-Info (10264): Verilog HDL Case Statement information at render.v(128): all case item expressions in this case statement are onehot File: C:/intelFPGA/render/render.v Line: 128
+Info (12128): Elaborating entity "render" for hierarchy "render:U1" File: C:/Users/chenm330/render/top.v Line: 43
+Warning (10270): Verilog HDL Case Statement warning at render.v(133): incomplete case statement has no default case item File: C:/Users/chenm330/render/render.v Line: 133
+Info (10264): Verilog HDL Case Statement information at render.v(133): all case item expressions in this case statement are onehot File: C:/Users/chenm330/render/render.v Line: 133
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "board" into its bus
-Info (12128): Elaborating entity "draw_square" for hierarchy "render:U1|draw_square:DRAWER" File: C:/intelFPGA/render/render.v Line: 234
-Warning (10036): Verilog HDL or VHDL warning at render.v(278): object "addr" assigned a value but never read File: C:/intelFPGA/render/render.v Line: 278
-Warning (10230): Verilog HDL assignment warning at render.v(278): truncated value with size 32 to match size of target (10) File: C:/intelFPGA/render/render.v Line: 278
-Warning (10230): Verilog HDL assignment warning at render.v(304): truncated value with size 32 to match size of target (10) File: C:/intelFPGA/render/render.v Line: 304
-Warning (10230): Verilog HDL assignment warning at render.v(305): truncated value with size 32 to match size of target (9) File: C:/intelFPGA/render/render.v Line: 305
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "render:U1|vga_adapter:VGA" File: C:/intelFPGA/render/render.v Line: 250
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "render:U1|vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/intelFPGA/render/vga_adapter.v Line: 128
-Info (12128): Elaborating entity "altsyncram" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" File: C:/intelFPGA/render/vga_adapter.v Line: 151
-Info (12130): Elaborated megafunction instantiation "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" File: C:/intelFPGA/render/vga_adapter.v Line: 151
-Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/intelFPGA/render/vga_adapter.v Line: 151
+Info (12128): Elaborating entity "draw_square" for hierarchy "render:U1|draw_square:DRAWER" File: C:/Users/chenm330/render/render.v Line: 242
+Warning (10230): Verilog HDL assignment warning at render.v(321): truncated value with size 32 to match size of target (10) File: C:/Users/chenm330/render/render.v Line: 321
+Warning (10230): Verilog HDL assignment warning at render.v(322): truncated value with size 32 to match size of target (9) File: C:/Users/chenm330/render/render.v Line: 322
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "render:U1|vga_adapter:VGA" File: C:/Users/chenm330/render/render.v Line: 258
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "render:U1|vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/chenm330/render/vga_adapter.v Line: 128
+Info (12128): Elaborating entity "altsyncram" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/chenm330/render/vga_adapter.v Line: 151
+Info (12130): Elaborated megafunction instantiation "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/chenm330/render/vga_adapter.v Line: 151
+Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/chenm330/render/vga_adapter.v Line: 151
     Info (12134): Parameter "width_a" = "9"
     Info (12134): Parameter "width_b" = "9"
     Info (12134): Parameter "intended_device_family" = "Cyclone V"
@@ -1723,23 +1723,21 @@ Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|altsyncram:Vi
     Info (12134): Parameter "power_up_uninitialized" = "FALSE"
     Info (12134): Parameter "init_file" = "./rainbow_640_9.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d1n1.tdf
-    Info (12023): Found entity 1: altsyncram_d1n1 File: C:/intelFPGA/render/db/altsyncram_d1n1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_d1n1 File: C:/Users/chenm330/render/db/altsyncram_d1n1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_d1n1" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated" File: c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (113028): 245760 out of 307200 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/intelFPGA/render/rainbow_640_9.mif Line: 1
-    Warning (113027): Addresses ranging from 30720 to 276479 are not initialized File: C:/intelFPGA/render/rainbow_640_9.mif Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_3na.tdf
-    Info (12023): Found entity 1: decode_3na File: C:/intelFPGA/render/db/decode_3na.tdf Line: 22
-Info (12128): Elaborating entity "decode_3na" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_3na:decode2" File: C:/intelFPGA/render/db/altsyncram_d1n1.tdf Line: 46
+    Info (12023): Found entity 1: decode_3na File: C:/Users/chenm330/render/db/decode_3na.tdf Line: 22
+Info (12128): Elaborating entity "decode_3na" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_3na:decode2" File: C:/Users/chenm330/render/db/altsyncram_d1n1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_s2a.tdf
-    Info (12023): Found entity 1: decode_s2a File: C:/intelFPGA/render/db/decode_s2a.tdf Line: 22
-Info (12128): Elaborating entity "decode_s2a" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_s2a:rden_decode_b" File: C:/intelFPGA/render/db/altsyncram_d1n1.tdf Line: 47
+    Info (12023): Found entity 1: decode_s2a File: C:/Users/chenm330/render/db/decode_s2a.tdf Line: 22
+Info (12128): Elaborating entity "decode_s2a" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|decode_s2a:rden_decode_b" File: C:/Users/chenm330/render/db/altsyncram_d1n1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_khb.tdf
-    Info (12023): Found entity 1: mux_khb File: C:/intelFPGA/render/db/mux_khb.tdf Line: 22
-Info (12128): Elaborating entity "mux_khb" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3" File: C:/intelFPGA/render/db/altsyncram_d1n1.tdf Line: 49
-Info (12128): Elaborating entity "vga_pll" for hierarchy "render:U1|vga_adapter:VGA|vga_pll:mypll" File: C:/intelFPGA/render/vga_adapter.v Line: 173
-Info (12128): Elaborating entity "altpll" for hierarchy "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/intelFPGA/render/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/intelFPGA/render/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/intelFPGA/render/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_khb File: C:/Users/chenm330/render/db/mux_khb.tdf Line: 22
+Info (12128): Elaborating entity "mux_khb" for hierarchy "render:U1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_d1n1:auto_generated|mux_khb:mux3" File: C:/Users/chenm330/render/db/altsyncram_d1n1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "render:U1|vga_adapter:VGA|vga_pll:mypll" File: C:/Users/chenm330/render/vga_adapter.v Line: 173
+Info (12128): Elaborating entity "altpll" for hierarchy "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/chenm330/render/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/chenm330/render/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/chenm330/render/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1752,26 +1750,26 @@ Info (12133): Instantiated megafunction "render:U1|vga_adapter:VGA|vga_pll:mypll
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: C:/intelFPGA/render/db/altpll_80u.tdf Line: 25
+    Info (12023): Found entity 1: altpll_80u File: C:/Users/chenm330/render/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga/quartus_prime_standard_18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "vga_controller" for hierarchy "render:U1|vga_adapter:VGA|vga_controller:controller" File: C:/intelFPGA/render/vga_adapter.v Line: 188
+Info (12128): Elaborating entity "vga_controller" for hierarchy "render:U1|vga_adapter:VGA|vga_controller:controller" File: C:/Users/chenm330/render/vga_adapter.v Line: 188
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 8
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/intelFPGA/render/top.v Line: 9
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/intelFPGA/render/top.v Line: 10
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 8
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/chenm330/render/top.v Line: 9
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/chenm330/render/top.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -2348,31 +2346,29 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/intelFPGA/render/db/altpll_80u.tdf Line: 33
+Warning: RST port on the PLL is not properly connected on instance render:U1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/chenm330/render/db/altpll_80u.tdf Line: 33
     Info: Must be connected
-Warning (21074): Design contains 12 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/intelFPGA/render/top.v Line: 6
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/intelFPGA/render/top.v Line: 7
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/intelFPGA/render/top.v Line: 7
-Info (21057): Implemented 777 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/chenm330/render/top.v Line: 6
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/chenm330/render/top.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/chenm330/render/top.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/chenm330/render/top.v Line: 7
+Info (21057): Implemented 770 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 39 output pins
-    Info (21061): Implemented 380 logic cells
+    Info (21061): Implemented 373 logic cells
     Info (21064): Implemented 342 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 610 warnings
-    Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Thu Nov 19 13:12:02 2026
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 607 warnings
+    Info: Peak virtual memory: 4899 megabytes
+    Info: Processing ended: Fri Nov 27 12:39:54 2026
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:20
 
 

@@ -24,7 +24,7 @@ module top(CLOCK_50, SW, KEY, LEDR, VGA_R, VGA_G, VGA_B,
         .old_x0(4'd4), .old_x1(4'd3), .old_x2(4'd4), .old_x3(4'd5),
         .old_y0(5'd0), .old_y1(5'd1), .old_y2(5'd1), .old_y3(5'd1),
         .curr_x0(4'd4), .curr_x1(4'd3), .curr_x2(4'd4), .curr_x3(4'd5),
-        .curr_y0(5'd1), .curr_y1(5'd2), .curr_y2(5'd3), .curr_y3(5'd4),
+        .curr_y0(5'd3), .curr_y1(5'd4), .curr_y2(5'd4), .curr_y3(5'd4),
 
         .board_we(1'b0),
         .board_wdata(3'b000),

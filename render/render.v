@@ -50,7 +50,7 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     parameter X_OFFSET = 10'd160; 
     parameter Y_OFFSET = 9'd0;
     parameter BG = 9'b0; // black bg colour
-    parameter GREEN = 9'b000011011; // turquoise ish green?
+    parameter GREEN = 9'b000111001; // turquoise ish green?
 
     // State codes
     parameter S_INIT = 4'd0;
@@ -145,8 +145,13 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
                 solid_colour = (board[gy][gx] != 3'b000) ? GREEN : BG;
                 draw_start = 1'b1;
             end
-            S_ERASE_WAIT, S_DRAW_ACTIVE_WAIT, S_DRAW_PLACED_WAIT:
-                inc_cell = draw_done && (Y_D != S_IDLE);
+            S_ERASE_WAIT:
+					inc_cell = draw_done && (Y_D != S_IDLE);
+				S_DRAW_ACTIVE_WAIT, S_DRAW_PLACED_WAIT:
+				begin
+                solid_colour = GREEN;
+					 inc_cell = draw_done && (Y_D != S_IDLE);
+				end
             S_INIT_WAIT, S_CLEAR_WAIT:
                 step_grid = draw_done && (Y_D != S_IDLE);
         endcase

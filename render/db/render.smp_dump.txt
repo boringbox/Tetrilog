@@ -14,8 +14,8 @@ y_Q.S_CLEAR 0 1 0 0 0 0 0 0 0 0 1
 y_Q.S_CLEAR_WAIT 1 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |top|render:U1|draw_square:DRAWER|y_Q
-Name y_Q.S_DONE y_Q.S_FLUSH y_Q.S_RUN y_Q.S_WAIT 
+Name y_Q.S_DONE y_Q.S_Y y_Q.S_X y_Q.S_WAIT 
 y_Q.S_WAIT 0 0 0 0 
-y_Q.S_RUN 0 0 1 1 
-y_Q.S_FLUSH 0 1 0 1 
+y_Q.S_X 0 0 1 1 
+y_Q.S_Y 0 1 0 1 
 y_Q.S_DONE 1 0 0 1 
