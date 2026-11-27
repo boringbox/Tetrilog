@@ -50,7 +50,6 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
     parameter X_OFFSET = 10'd160; 
     parameter Y_OFFSET = 9'd0;
     parameter BG = 9'b0; // black bg colour
-    parameter GREEN = 9'b000111001; // turquoise ish green?
 
     // State codes
     parameter S_INIT = 4'd0;
@@ -137,23 +136,28 @@ module render(CLOCK_50, resetn, block_moved, block_locked, redraw_board, old_x0,
                 draw_start = 1'b1;
             S_DRAW_ACTIVE, S_DRAW_PLACED:
             begin
-                solid_colour = GREEN;
+                use_mif = 1'b1;
                 draw_start = 1'b1;
             end
             S_CLEAR:
             begin
-                solid_colour = (board[gy][gx] != 3'b000) ? GREEN : BG;
+                use_mif = (board[gy][gx] != 3'b000);
                 draw_start = 1'b1;
             end
             S_ERASE_WAIT:
-					inc_cell = draw_done && (Y_D != S_IDLE);
-				S_DRAW_ACTIVE_WAIT, S_DRAW_PLACED_WAIT:
-				begin
-                solid_colour = GREEN;
-					 inc_cell = draw_done && (Y_D != S_IDLE);
-				end
-            S_INIT_WAIT, S_CLEAR_WAIT:
+                inc_cell = draw_done && (Y_D != S_IDLE);
+            S_DRAW_ACTIVE_WAIT, S_DRAW_PLACED_WAIT:
+            begin
+                use_mif = 1'b1;
+                inc_cell = draw_done && (Y_D != S_IDLE);
+            end
+            S_INIT_WAIT:
                 step_grid = draw_done && (Y_D != S_IDLE);
+            S_CLEAR_WAIT:
+            begin
+                use_mif = (board[gy][gx] != 3'b000);
+                step_grid = draw_done && (Y_D != S_IDLE);
+            end
         endcase
     end
 
@@ -265,22 +269,26 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     input [4:0] grid_y;
     input [8:0] solid_colour;
     output done;
-    output [9:0] pix_x; // based on vga adapter
-    output [8:0] pix_y; // based on vga adapter
+    output reg [9:0] pix_x; // based on vga adapter
+    output reg [8:0] pix_y; // based on vga adapter
     output reg write;
     output [8:0] vga_colour;
 
     parameter CELL = 32;
     parameter X_OFFSET = 10'd160;
     parameter Y_OFFSET = 9'd0;
-    parameter ADDR_W = 10;          // 2^10 = 1024 = 32*32 (bit width of cell)
-    parameter DEPTH = CELL * CELL; // square.mif DEPTH
+    parameter ADDR_W = 10;   // 2^10 = 1024
+    parameter DEPTH = 1024;  // square.mif is 32*32; CELL only sets the scan size
 
    parameter S_WAIT = 2'b00, S_X = 2'b01, S_Y = 2'b10, S_DONE = 2'b11;
 
     reg [1:0] y_Q, Y_D;
     reg [5:0] Xc, Yc;
     reg Lxc, Lyc, Exc, Eyc;
+    reg write_now;
+
+    wire [ADDR_W-1:0] rom_addr = {Yc[4:0], Xc[4:0]};
+    wire [8:0] rom_colour;
 
     always @(*)
         case (y_Q)
@@ -293,12 +301,12 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
 
     always @(*)
     begin
-        Lxc = 1'b0; Lyc = 1'b0; Exc = 1'b0; Eyc = 1'b0; write = 1'b0;
+        Lxc = 1'b0; Lyc = 1'b0; Exc = 1'b0; Eyc = 1'b0; write_now = 1'b0;
         case (y_Q)
-            S_WAIT: begin Lxc = 1'b1; Lyc = 1'b1; end   // hold counters at 0
-            S_X:    begin Exc = 1'b1; write = 1'b1; end // write this pixel, step X
-            S_Y:    begin Lxc = 1'b1; Eyc = 1'b1; end   // reload X, step Y
-            S_DONE: begin Lxc = 1'b1; Lyc = 1'b1; end   // reload both; write stays 0
+            S_WAIT: begin Lxc = 1'b1; Lyc = 1'b1; end       // hold counters at 0
+            S_X:    begin Exc = 1'b1; write_now = 1'b1; end // write this pixel, step X
+            S_Y:    begin Lxc = 1'b1; Eyc = 1'b1; end       // reload X, step Y
+            S_DONE: begin Lxc = 1'b1; Lyc = 1'b1; end       // reload both; write stays 0
         endcase
     end
 
@@ -318,9 +326,44 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
         else if (Lyc)       Yc <= 6'd0;
         else if (Eyc)       Yc <= Yc + 1'b1;
 
-    assign pix_x = X_OFFSET + (grid_x * CELL) + Xc;
-    assign pix_y = Y_OFFSET + (grid_y * CELL) + Yc;
-    assign vga_colour = solid_colour;
+    // ROM address is registered, so q_a is the pixel from the previous cycle.
+    // Delay x, y, and write by one clock to match it. The last pixel is
+    // written during S_Y, and done rises in S_DONE one cycle later.
+    always @(posedge clock)
+    begin
+        if (!resetn)
+        begin
+            pix_x <= 10'd0;
+            pix_y <= 9'd0;
+            write <= 1'b0;
+        end
+        else
+        begin
+            pix_x <= X_OFFSET + (grid_x * CELL) + Xc;
+            pix_y <= Y_OFFSET + (grid_y * CELL) + Yc;
+            write <= write_now;
+        end
+    end
+
+    altsyncram tile_rom (
+        .clock0(clock),
+        .address_a(rom_addr),
+        .q_a(rom_colour),
+        .wren_a(1'b0)
+    );
+    defparam
+        tile_rom.operation_mode = "ROM",
+        tile_rom.width_a = 9,
+        tile_rom.widthad_a = ADDR_W,
+        tile_rom.numwords_a = DEPTH,
+        tile_rom.address_reg_a = "CLOCK0",
+        tile_rom.outdata_reg_a = "UNREGISTERED",
+        tile_rom.clock_enable_input_a = "BYPASS",
+        tile_rom.clock_enable_output_a = "BYPASS",
+        tile_rom.intended_device_family = "Cyclone V",
+        tile_rom.init_file = "./square.mif";
+
+    assign vga_colour = use_mif ? rom_colour : solid_colour;
     assign done = (y_Q == S_DONE);
-    
+
 endmodule
