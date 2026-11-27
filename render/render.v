@@ -288,7 +288,13 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     reg write_now;
 
     wire [ADDR_W-1:0] rom_addr = {Yc[4:0], Xc[4:0]};
-    wire [8:0] rom_colour;
+    // Inferred M10K ROM. A clocked read is what makes Quartus keep this in the
+    // RAM summary; the direct altsyncram instance was deleted during synthesis.
+    reg [8:0] tile_rom [0:DEPTH-1] /* synthesis ram_init_file = "square.mif" ramstyle = "M10K" */;
+    reg [8:0] rom_colour;
+
+    always @(posedge clock)
+        rom_colour <= tile_rom[rom_addr];
 
     always @(*)
         case (y_Q)
@@ -326,9 +332,9 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
         else if (Lyc)       Yc <= 6'd0;
         else if (Eyc)       Yc <= Yc + 1'b1;
 
-    // ROM address is registered, so q_a is the pixel from the previous cycle.
-    // Delay x, y, and write by one clock to match it. The last pixel is
-    // written during S_Y, and done rises in S_DONE one cycle later.
+    // tile_rom[rom_addr] is registered, so rom_colour is the pixel addressed on
+    // the previous cycle. Delay x, y, and write by that same clock. The last
+    // pixel is written during S_Y, and done rises in S_DONE one cycle later.
     always @(posedge clock)
     begin
         if (!resetn)
@@ -344,24 +350,6 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
             write <= write_now;
         end
     end
-
-    altsyncram tile_rom (
-        .clock0(clock),
-        .address_a(rom_addr),
-        .q_a(rom_colour),
-        .wren_a(1'b0)
-    );
-    defparam
-        tile_rom.operation_mode = "ROM",
-        tile_rom.width_a = 9,
-        tile_rom.widthad_a = ADDR_W,
-        tile_rom.numwords_a = DEPTH,
-        tile_rom.address_reg_a = "CLOCK0",
-        tile_rom.outdata_reg_a = "UNREGISTERED",
-        tile_rom.clock_enable_input_a = "BYPASS",
-        tile_rom.clock_enable_output_a = "BYPASS",
-        tile_rom.intended_device_family = "Cyclone V",
-        tile_rom.init_file = "./square.mif";
 
     assign vga_colour = use_mif ? rom_colour : solid_colour;
     assign done = (y_Q == S_DONE);
