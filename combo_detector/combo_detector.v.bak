@@ -1,0 +1,4 @@
+//A row is considered complete when all 10 cells of the row are occupied
+//The detector tells the rest of the game which rows are full,
+//how many rows are full, and whether a line clearing has been detected
+
