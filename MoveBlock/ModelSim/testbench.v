@@ -9,7 +9,7 @@ module testbench();
     reg render_idle = 1'b1;
     reg blocked = 1'b0;
     reg [2:0] cmd_in = 3'b000;
-    reg [2:0] piece = 3'b000;
+    reg [2:0] piece = 3'd2;
 
     wire done, block_moved, busy;
     wire [3:0] curr_x0, curr_x1, curr_x2, curr_x3;

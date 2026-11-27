@@ -12,7 +12,6 @@ add wave -noupdate /testbench/render_idle
 add wave -noupdate /testbench/blocked
 
 add wave -noupdate -divider {outputs}
-add wave -noupdate /testbench/done
 add wave -noupdate /testbench/block_moved
 add wave -noupdate /testbench/busy
 
@@ -35,16 +34,6 @@ add wave -noupdate -radix unsigned /testbench/old_x2
 add wave -noupdate -radix unsigned /testbench/old_y2
 add wave -noupdate -radix unsigned /testbench/old_x3
 add wave -noupdate -radix unsigned /testbench/old_y3
-
-add wave -noupdate -divider {where the command would put it}
-add wave -noupdate -radix unsigned /testbench/new_x0
-add wave -noupdate -radix unsigned /testbench/new_y0
-add wave -noupdate -radix unsigned /testbench/new_x1
-add wave -noupdate -radix unsigned /testbench/new_y1
-add wave -noupdate -radix unsigned /testbench/new_x2
-add wave -noupdate -radix unsigned /testbench/new_y2
-add wave -noupdate -radix unsigned /testbench/new_x3
-add wave -noupdate -radix unsigned /testbench/new_y3
 
 add wave -noupdate -divider {inside MoveBlock}
 # state is one-hot: IDLE = 001, RECEIVE = 010, PLOT = 100

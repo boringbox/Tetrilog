@@ -260,8 +260,8 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     input [4:0] grid_y;
     input [8:0] solid_colour;
     output done;
-    output reg [9:0] pix_x; // based on vga adapter
-    output reg [8:0] pix_y; // based on vga adapter
+    output [9:0] pix_x; // based on vga adapter
+    output [8:0] pix_y; // based on vga adapter
     output reg write;
     output [8:0] vga_colour;
 
@@ -276,7 +276,6 @@ module draw_square(clock, resetn, start, grid_x, grid_y, use_mif, solid_colour, 
     reg [1:0] y_Q, Y_D;
     reg [5:0] Xc, Yc;
     reg Lxc, Lyc, Exc, Eyc;
-    reg write;
 
     always @(*)
         case (y_Q)

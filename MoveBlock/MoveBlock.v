@@ -23,7 +23,7 @@ module MoveBlock(Clock, Resetn, cmd_in, cmd_valid, piece, spawn, done,
     input [2:0] piece; 
     input spawn, render_idle, blocked;
 
-    output reg done; 
+    output done; 
     output block_moved, busy; 
     output [3:0] curr_x0, curr_x1, curr_x2, curr_x3, old_x0, old_x1, old_x2, old_x3,
                  new_x0, new_x1, new_x2, new_x3;
@@ -70,6 +70,8 @@ module MoveBlock(Clock, Resetn, cmd_in, cmd_valid, piece, spawn, done,
     // Assign cx and cy
     always @(*)
     begin
+        cx = px;
+        cy = py;
         case(cmd)
         CMD_LEFT:  cx = px - 4'd1;
         CMD_RIGHT: cx = px + 4'd1;

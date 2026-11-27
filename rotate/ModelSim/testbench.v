@@ -17,6 +17,5 @@ module testbench();
         #10; // 2
         blockGrid = newBlockGrid;
         #10; // 3
-        $stop;
     end
 endmodule
