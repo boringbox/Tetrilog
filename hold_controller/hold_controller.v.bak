@@ -1,0 +1,8 @@
+
+//This module will be in charge of holding a piece 
+//For example, if you have a L piece and you press the hold key
+//The L piece is stored in the hold slot and the game will request
+//a new piece from the generator. That new piece will then become active
+//Later, if you press hold again, the current piece goes into the hold slot
+//and the previously stored L becomes active
+//YOU CAN ONLY HOLD ONCE PER PIECE
