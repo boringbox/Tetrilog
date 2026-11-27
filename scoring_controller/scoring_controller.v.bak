@@ -1,0 +1,89 @@
+//This module recieves the number fo rows detected by the combo detector
+//and it updates the score, total lines cleared, and level
+//The scoring looks like the following:
+// ROWS CLEARED |  POINTS
+//---------------------------------
+//     1        |   100
+//     2        |   300
+//     3        |   500
+//     4        |   800
+
+
+module scoring_controller (
+input Clock,
+input Resetn,
+
+input line_clear_event,
+input [4:0] lines_cleared,
+
+output reg [31:0] score,
+output reg [9:0] total_lines,
+output reg [3:0] level
+);
+
+ reg [31:0] points;
+ reg [31:0] multiplier;
+ reg [31:0] point_to_add;
+ 
+ always @(*) begin
+ 
+ //default values
+ points = 31'd0;
+ multiplier = 32'd1;
+ 
+ //determine points from number of lines cleared
+ 
+ case (lines_cleared)
+ 
+       5'd1: points = 32'd100;
+		 5'd2: points = 32'd300;
+		 5'd3: points = 32'd500;
+		 5'd4: points = 32'd800;
+		 
+		 default: points = 32'd0;
+		 
+ endcase
+ 
+ //level multiplier
+ multiplier = {28'b0, level} + 32'd1;
+ 
+ //calculate total points
+ points_to_add = points*multiplier;
+ end
+ 
+ always @(posedge Clock) begin
+ if(!Resetn) begin
+ 
+ score <= 32'd0;
+ total_lines <= 10'd0;
+ level <= 4'd0;
+ 
+ end
+ 
+ else if (line_clear_event && lines_cleared != 5'd0) begin
+ //update the score
+ score <= score + points_to_add;
+ 
+ //update total lines cleared
+ total_lines <= total_lines + lines_cleared;
+ 
+ //increace level for every 10 lines
+ if ((total_lines + lines_cleared) >= 10)
+    level <= (total_lines + lines_cleared) / 10;
+	 
+  end
+ 
+ end
+ 
+endmodule
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
