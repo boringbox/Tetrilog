@@ -1,0 +1,92 @@
+//This module tells the game when a piece should move down
+//At starting level, the block will drop every 1 second
+//As level increaces, the interval decreaces
+// LEVEL | DROP INTERVAL (seconds)
+//---------------------------------
+//   0   |         1
+//   1   |        0.9
+//   2   |        0.8
+//   3   |        0.7
+//   4   |        0.6
+//   5   |        0.5
+//   6   |        0.4
+//   7   |        0.3
+//   8   |        0.2
+//   9+  |        0.1
+
+
+module gravity_controller(
+input CLOCK_50,
+input Resetn,
+input game_active,
+input [3:0] level,
+
+output reg gravity_counter
+);
+
+reg [25:0] count; //must count up to about 50 million
+reg [25:0] drop_interval; //number of clock cycles we wait before dropping a piece
+
+//calculate the drop interval from the current level
+always @(*) begin
+
+if(level >= 4'd9)
+   drop_interval = 26'd5000000;
+else 
+
+   drop_interval = 26'd50000000 - (level * 26'd5000000);
+end
+
+//calculate clock cycles and generate drop pulse
+always @(posedge CLOCK_50) begin
+if(!Resetn) begin
+
+count <= 26'd0;
+gravity_counter <= 1'b0;
+end
+
+else if (!game_active)begin
+
+count <= 26'd0;
+gravity_counter <= 1'b0;
+
+end
+
+else begin
+//default is no drop pulse
+gravity_counter <= 1'b0;
+
+if (count >= drop_interval - 1'b1) begin
+   count <= 26'd0;
+	gravity_counter <= 1'b1;
+end
+
+else begin
+
+    count <= count + 1'b1;
+	 
+	 end
+	 
+	end
+	
+  end
+  
+ endmodule
+ 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

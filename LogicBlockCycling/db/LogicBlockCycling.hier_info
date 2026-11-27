@@ -1,0 +1,15 @@
+|LogicBlockCycling
+Clock => Piece[0]~reg0.CLK
+Clock => Piece[1]~reg0.CLK
+Clock => Piece[2]~reg0.CLK
+Resetn => Piece.OUTPUTSELECT
+Resetn => Piece.OUTPUTSELECT
+Resetn => Piece.OUTPUTSELECT
+NextBlock => Piece.OUTPUTSELECT
+NextBlock => Piece.OUTPUTSELECT
+NextBlock => Piece.OUTPUTSELECT
+Piece[0] <= Piece[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Piece[1] <= Piece[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Piece[2] <= Piece[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

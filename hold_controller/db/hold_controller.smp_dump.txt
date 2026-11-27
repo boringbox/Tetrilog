@@ -1,0 +1,6 @@
+
+State Machine - |hold_controller|state
+Name state.IDLE state.LOAD_NEXT_PIECE state.WAIT_NEXT_PIECE 
+state.IDLE 0 0 0 
+state.WAIT_NEXT_PIECE 1 0 1 
+state.LOAD_NEXT_PIECE 1 1 0 

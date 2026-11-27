@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "piece_to_load[0]",
+					"strict" : false
+				},
+				{
+					"name" : "piece_to_load[1]",
+					"strict" : false
+				},
+				{
+					"name" : "piece_to_load[2]",
+					"strict" : false
+				},
+				{
+					"name" : "load_piece",
+					"strict" : false
+				},
+				{
+					"name" : "request_next_piece",
+					"strict" : false
+				},
+				{
+					"name" : "held_piece_id[0]",
+					"strict" : false
+				},
+				{
+					"name" : "held_piece_id[1]",
+					"strict" : false
+				},
+				{
+					"name" : "held_piece_id[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hold_valid",
+					"strict" : false
+				},
+				{
+					"name" : "hold_used",
+					"strict" : false
+				},
+				{
+					"name" : "Resetn",
+					"strict" : false
+				},
+				{
+					"name" : "next_piece_id[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
+					"strict" : false
+				},
+				{
+					"name" : "hold_request",
+					"strict" : false
+				},
+				{
+					"name" : "current_piece_id[0]",
+					"strict" : false
+				},
+				{
+					"name" : "current_piece_id[1]",
+					"strict" : false
+				},
+				{
+					"name" : "current_piece_id[2]",
+					"strict" : false
+				},
+				{
+					"name" : "next_piece_id[1]",
+					"strict" : false
+				},
+				{
+					"name" : "next_piece_id[2]",
+					"strict" : false
+				},
+				{
+					"name" : "piece_locked",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
