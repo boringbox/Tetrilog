@@ -1,0 +1,89 @@
+|Randomiser
+CLOCK_50 => CLOCK_50.IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => key1_prev.DATAIN
+KEY[1] => next_pulse.IN1
+LEDR[0] <= Randomiser_EE:R1.LEDR
+LEDR[1] <= Randomiser_EE:R1.LEDR
+LEDR[2] <= Randomiser_EE:R1.LEDR
+LEDR[3] <= Randomiser_EE:R1.LEDR
+LEDR[4] <= Randomiser_EE:R1.LEDR
+LEDR[5] <= Randomiser_EE:R1.LEDR
+LEDR[6] <= Randomiser_EE:R1.LEDR
+LEDR[7] <= Randomiser_EE:R1.LEDR
+LEDR[8] <= Randomiser_EE:R1.LEDR
+LEDR[9] <= Randomiser_EE:R1.LEDR
+
+
+|Randomiser|Randomiser_EE:R1
+Clock => Clock.IN1
+Resetn => Resetn.IN1
+NextBlock => Piece.OUTPUTSELECT
+NextBlock => Piece.OUTPUTSELECT
+NextBlock => Piece.OUTPUTSELECT
+Piece[0] <= Piece[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Piece[1] <= Piece[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Piece[2] <= Piece[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Randomiser|Randomiser_EE:R1|LFSR_16bit:RNG1
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+resetn => rando.OUTPUTSELECT
+clock => rando[0]~reg0.CLK
+clock => rando[1]~reg0.CLK
+clock => rando[2]~reg0.CLK
+clock => rando[3]~reg0.CLK
+clock => rando[4]~reg0.CLK
+clock => rando[5]~reg0.CLK
+clock => rando[6]~reg0.CLK
+clock => rando[7]~reg0.CLK
+clock => rando[8]~reg0.CLK
+clock => rando[9]~reg0.CLK
+clock => rando[10]~reg0.CLK
+clock => rando[11]~reg0.CLK
+clock => rando[12]~reg0.CLK
+clock => rando[13]~reg0.CLK
+clock => rando[14]~reg0.CLK
+clock => rando[15]~reg0.CLK
+rando[0] <= rando[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[1] <= rando[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[2] <= rando[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[3] <= rando[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[4] <= rando[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[5] <= rando[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[6] <= rando[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[7] <= rando[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[8] <= rando[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[9] <= rando[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[10] <= rando[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[11] <= rando[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[12] <= rando[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[13] <= rando[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[14] <= rando[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rando[15] <= rando[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
